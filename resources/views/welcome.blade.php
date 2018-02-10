@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Zero Hoang
+                    Laravel
                 </div>
 
                 <div class="links">
