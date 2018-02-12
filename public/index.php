@@ -1,5 +1,9 @@
 <?php
-
+// start time
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$start = $time;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -58,3 +62,11 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+// total time display absolute
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$finish = $time;
+$total_time = round(($finish - $start), 4);
+echo '<div style="position: absolute; left: 10px; top: 45px; color:#ffffff;z-index:9999;">Page generated in '.$total_time.' seconds.</div>';
