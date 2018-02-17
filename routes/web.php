@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('test');
+    return view('admin.metronic.test');
+});
+
+Route::get('/admincp', function () {
+	return view('admin.metronic.test');
 });
