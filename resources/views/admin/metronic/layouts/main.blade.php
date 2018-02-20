@@ -40,12 +40,12 @@ License: You must have a valid license purchased only from themeforest(the above
 
                  
         <!--begin::Page Vendors --> 
-                <link href="./assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+                <link href="/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
                 <!--end::Page Vendors -->
          
 
-				<link href="./assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
-				<link href="./assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+				<link href="/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+				<link href="/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
 		        <!--end::Base Styles -->
 
         <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico" /> 
@@ -81,7 +81,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<div class="m-stack m-stack--ver m-stack--general">
 		<div class="m-stack__item m-stack__item--middle m-brand__logo">
 			<a href="/" class="m-brand__logo-wrapper">
-			<img alt="" src="./assets/demo/default/media/img/logo/logo_default_dark.png"/>
+			<img alt="" src="/assets/demo/default/media/img/logo/logo_default_dark.png"/>
 			</a>  
 		</div>
 		<div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -170,7 +170,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<div class="m-dropdown__wrapper">
 		<span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
 		<div class="m-dropdown__inner">
-			<div class="m-dropdown__header m--align-center" style="background: url(./assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
+			<div class="m-dropdown__header m--align-center" style="background: url(/assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
 				<span class="m-dropdown__header-title">9 New</span>
 				<span class="m-dropdown__header-subtitle">User Notifications</span>
 			</div>
@@ -297,7 +297,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<div class="m-dropdown__wrapper">
 		<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
 		<div class="m-dropdown__inner">
-			<div class="m-dropdown__header m--align-center" style="background: url(./assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+			<div class="m-dropdown__header m--align-center" style="background: url(/assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
 				<span class="m-dropdown__header-title">Quick Actions</span>
 				<span class="m-dropdown__header-subtitle">Shortcuts</span>
 			</div>
@@ -335,17 +335,17 @@ License: You must have a valid license purchased only from themeforest(the above
 			<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
 	<a href="#" class="m-nav__link m-dropdown__toggle">
 	<span class="m-topbar__userpic">
-	<img src="./assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+	<img src="/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
 	</span>
 	<span class="m-topbar__username m--hide">Nick</span>					
 	</a>
 	<div class="m-dropdown__wrapper">
 		<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
 		<div class="m-dropdown__inner">
-			<div class="m-dropdown__header m--align-center" style="background: url(./assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+			<div class="m-dropdown__header m--align-center" style="background: url(/assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
 				<div class="m-card-user m-card-user--skin-dark">
 					<div class="m-card-user__pic">
-						<img src="./assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
+						<img src="/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
 					</div>
 					<div class="m-card-user__details">
 						<span class="m-card-user__name m--font-weight-500">Mark Andre</span>
@@ -399,7 +399,11 @@ License: You must have a valid license purchased only from themeforest(the above
 						<li class="m-nav__separator m-nav__separator--fit">
 						</li>
 						<li class="m-nav__item">
-							<a href="?page=snippets/pages/user/login-1&demo=default" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
+							<a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
 						</li>
 					</ul>
 				</div>
@@ -443,9 +447,9 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h4 class="m-menu__section-text">Tools</h4>
                 <i class="m-menu__section-icon flaticon-more-v3"></i>
             </li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=builder&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-settings"></i><span class="m-menu__link-text">Layout Builder</span></a></li><li class="m-menu__section">
-                <h4 class="m-menu__section-text">Snippets</h4>
+                <h4 class="m-menu__section-text">System</h4>
                 <i class="m-menu__section-icon flaticon-more-v3"></i>
-            </li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-interface-9"></i><span class="m-menu__link-text">Pricing Tables</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">Pricing Tables</span></span></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/general/pricing-tables/pricing-table-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pricing Tables v1</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/general/pricing-tables/pricing-table-2&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pricing Tables v2</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/general/pricing-tables/pricing-table-3&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pricing Tables v3</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/general/pricing-tables/pricing-table-4&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pricing Tables v4</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-piggy-bank"></i><span class="m-menu__link-text">Invoices</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">Invoices</span></span></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/invoices/invoice-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Invoice v1</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/invoices/invoice-2&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Invoice v2</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-exclamation"></i><span class="m-menu__link-text">FAQS</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">FAQS</span></span></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/faq/faq-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">FAQ v1</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-suitcase"></i><span class="m-menu__link-text">Custom Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">Custom Pages</span></span></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">User Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 1</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-2&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 2</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-3&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 3</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-4&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 4</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-5&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 5</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 1</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-2&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 2</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-3&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 3</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-4&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 4</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-5&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 5</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-6&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 6</span></a></li></ul></div></li></ul></div></li>		</ul>
+            </li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-interface-9"></i><span class="m-menu__link-text">Users</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">Pricing Tables</span></span></li><li class="m-menu__item " aria-haspopup="true" ><a  href="{{ route('admin.users.create') }}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Add new</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a  href="{{ route('admin.users.index') }}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">List Users</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-piggy-bank"></i><span class="m-menu__link-text">Invoices</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">Invoices</span></span></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/invoices/invoice-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Invoice v1</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/invoices/invoice-2&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Invoice v2</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-exclamation"></i><span class="m-menu__link-text">FAQS</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">FAQS</span></span></li><li class="m-menu__item " aria-haspopup="true" ><a  href="?page=snippets/faq/faq-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">FAQ v1</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-suitcase"></i><span class="m-menu__link-text">Custom Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" ><span class="m-menu__link"><span class="m-menu__link-text">Custom Pages</span></span></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">User Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 1</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-2&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 2</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-3&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 3</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-4&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 4</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/user/login-5&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Login - 5</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu "><span class="m-menu__arrow"></span><ul class="m-menu__subnav"><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-1&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 1</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-2&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 2</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-3&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 3</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-4&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 4</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-5&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 5</span></a></li><li class="m-menu__item " aria-haspopup="true" ><a target="_blank" href="?page=snippets/pages/errors/error-6&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Error 6</span></a></li></ul></div></li></ul></div></li>		</ul>
 	</div>
 	<!-- END: Aside Menu -->
 </div>
@@ -552,7 +556,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="m-messenger__wrapper">
 							<div class="m-messenger__message m-messenger__message--in">
 								<div class="m-messenger__message-pic">
-									<img src="./assets/app/media/img//users/user3.jpg" alt=""/>
+									<img src="/assets/app/media/img//users/user3.jpg" alt=""/>
 								</div>
 								<div class="m-messenger__message-body">
 									<div class="m-messenger__message-arrow"></div>
@@ -582,7 +586,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="m-messenger__wrapper">
 							<div class="m-messenger__message m-messenger__message--in">
 								<div class="m-messenger__message-pic">
-									<img src="./assets/app/media/img//users/user3.jpg" alt=""/>
+									<img src="/assets/app/media/img//users/user3.jpg" alt=""/>
 								</div>
 								<div class="m-messenger__message-body">
 									<div class="m-messenger__message-arrow"></div>
@@ -613,7 +617,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="m-messenger__wrapper">
 							<div class="m-messenger__message m-messenger__message--in">
 								<div class="m-messenger__message-pic">
-									<img src="./assets/app/media/img//users/user3.jpg"  alt=""/>
+									<img src="/assets/app/media/img//users/user3.jpg"  alt=""/>
 								</div>
 								<div class="m-messenger__message-body">
 									<div class="m-messenger__message-arrow"></div>
@@ -686,7 +690,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="m-messenger__wrapper">
 							<div class="m-messenger__message m-messenger__message--in">
 								<div class="m-messenger__message-pic">
-									<img src="./assets/app/media/img//users/user3.jpg"  alt=""/>
+									<img src="/assets/app/media/img//users/user3.jpg"  alt=""/>
 								</div>
 								<div class="m-messenger__message-body">
 									<div class="m-messenger__message-arrow"></div>
@@ -1017,13 +1021,13 @@ License: You must have a valid license purchased only from themeforest(the above
 </ul>
 <!-- begin::Quick Nav -->	
     	<!--begin::Base Scripts -->        
-    	    	<script src="./assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
-		    	<script src="./assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    	    	<script src="/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
+		    	<script src="/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
 				<!--end::Base Scripts -->   
 
          
         <!--begin::Page Vendors --> 
-                <script src="./assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+                <script src="/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
                 <!--end::Page Vendors -->  
           
 
@@ -1031,7 +1035,7 @@ License: You must have a valid license purchased only from themeforest(the above
         
                     
         <!--begin::Page Snippets --> 
-                <script src="./assets/app/js/dashboard.js" type="text/javascript"></script>
+                <script src="/assets/app/js/dashboard.js" type="text/javascript"></script>
                 <!--end::Page Snippets -->   
                 
             </body>
