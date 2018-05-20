@@ -1,8 +1,6 @@
-@extends('admin.layouts.main')
+<?php $__env->startSection('title','Admin Control Panel'); ?>
 
-@section('title','Admin Control Panel')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="m-portlet m-portlet--mobile">
 	<div class="m-portlet__head">
 		<div class="m-portlet__head-caption">
@@ -13,7 +11,7 @@
 			</div>
 		</div>
 		<div class="m-portlet__head-tools">
-			<a href="{{ route('admin.users.create') }}" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" style="margin-top: 12px">
+			<a href="<?php echo e(route('admin.users.create')); ?>" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" style="margin-top: 12px">
 						<span>
 							<i class="la la-cart-plus"></i>
 							<span>New User</span>
@@ -91,26 +89,26 @@
 				<th title="Field #4" class="m-datatable__cell m-datatable__cell--sort" data-field="Car Make"><span style="width: 110px;">Name</span></th>
 				<th title="Field #5" class="m-datatable__cell m-datatable__cell--sort" data-field="Car Model"><span style="width: 150px;">Email</span></th>
 				<th title="Field #8" class="m-datatable__cell m-datatable__cell--sort" data-field="Order Date"><span style="width: 120px;">Create Date</span></th>
-				<th>Action</th>
 			</tr>
 			</thead>
 			<tbody class="m-datatable__body" style="">
-			@foreach($users as $user)
+			<?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<tr data-row="0" class="m-datatable__row" style="left: 0px;">
-			<td data-field="Order ID" class="m-datatable__cell"><span style="width: 30px;">{{ $user->id }}</span></td>
-			<td data-field="Owner" class="m-datatable__cell"><span style="width: 80px;">{{ $user->username }}</span></td><td data-field="Contact" class="m-datatable__cell"><span style="width: 110px;">{{ $user->name }}</span></td>
-			<td data-field="Car Make" class="m-datatable__cell"><span style="width: 150px;">{{ $user->email }}</span></td>
-			<td data-field="Car Model" class="m-datatable__cell"><span style="width: 120px;">{{ $user->created_at }}</span></td>
-			<td><a href="{{ route('admin.users.edit',$user->id) }}">Edit</a></td>
+			<td data-field="Order ID" class="m-datatable__cell"><span style="width: 30px;"><?php echo e($user->id); ?></span></td>
+			<td data-field="Owner" class="m-datatable__cell"><span style="width: 80px;"><?php echo e($user->username); ?></span></td><td data-field="Contact" class="m-datatable__cell"><span style="width: 110px;"><?php echo e($user->name); ?></span></td>
+			<td data-field="Car Make" class="m-datatable__cell"><span style="width: 150px;"><?php echo e($user->email); ?></span></td>
+			<td data-field="Car Model" class="m-datatable__cell"><span style="width: 120px;"><?php echo e($user->created_at); ?></span></td>
 			</tr>
-			@endforeach
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</tbody>
 		</table>
 		<div class="m-datatable__pager m-datatable--paging-loaded clearfix">
-		{{ $users->links() }}
-		<span class="m-datatable__pager-detail">Displaying 1 - 10 of {{ $users->total() }} records</span>
+		<?php echo e($users->links()); ?>
+
+		<span class="m-datatable__pager-detail">Displaying 1 - 10 of <?php echo e($users->total()); ?> records</span>
 		</div></div>
 		<!--end: Datatable -->
 	</div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.metronic.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

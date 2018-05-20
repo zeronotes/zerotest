@@ -70,7 +70,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        // dd($user);
+        return view('admin.users.edit')->with('user', $user);
     }
 
     /**
@@ -80,9 +82,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $rq, $id)
     {
-        //
+        $user = User::find($id);
+        // if($rq->password)
+        $user->name = $rq->name;
+        $user->save();
+        return redirect()->back();
     }
 
     public function profile()

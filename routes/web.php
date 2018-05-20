@@ -29,8 +29,13 @@ Route::get('san-pham/{slug}', 'ProductController@product')->name('product');
 Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('users/create','UserController@create')->name('users.create');
     Route::post('users/create','UserController@store');
+
+    Route::get('users/edit/{id}','UserController@edit')->name('users.edit');
+    Route::post('users/edit/{id}','UserController@update');
+    
     Route::get('users','UserController@index')->name('users.index');
     Route::get('usergroups', function(){})->name('usergroups.index');
+
     Route::get('test','PageController@index');
     Route::get('logout','PageController@index')->name('logout');
 });
