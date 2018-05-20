@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserFormRequest;
 
 class UserController extends Controller
 {
@@ -15,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.metronic.users.index')->with('users', User::all());
+        $users = User::orderBy('created_at','DESC')->paginate(5);
+        return view('admin.users.index')->with('users', $users);
     }
 
     /**
@@ -25,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -34,9 +37,18 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $rq)
     {
-        //
+        $user = new User;
+        $user->username = $rq->username;
+        $user->password = Hash::make($rq->password);
+        $user->email = $rq->email;
+        $user->name = $rq->name;
+        if($user->save()){
+            return redirect()->route('admin.users.index');
+        } else{
+            return redirect()->back();
+        }
     }
 
     /**
