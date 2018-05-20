@@ -1,10 +1,8 @@
 @extends('admin.layouts.main')
-
 @section('content')
 <div class="row">
 	<div class="col-lg-12">
-		<!--begin::Portlet-->
-		<div class="m-portlet">
+		<div class="m-portlet m-portlet--tab">
 			<div class="m-portlet__head">
 				<div class="m-portlet__head-caption">
 					<div class="m-portlet__head-title">
@@ -12,17 +10,16 @@
 						<i class="la la-gear"></i>
 						</span>
 						<h3 class="m-portlet__head-text">
-							Add new user
+							New user	
 						</h3>
 					</div>
 				</div>
 			</div>
 			<!--begin::Form-->
-			<form method="post" class="m-form">
-				<div class="m-portlet__body">	
-					<div class="m-form__section m-form__section--first">
+			<form method="post" class="m-form m-form--fit m-form--label-align-right">
+				<div class="m-portlet__body">
 					@if($errors->any())
-					<div class="form-group m-form__group alert alert-danger">
+					<div class="form-group m-form__group m--margin-top-10 alert alert-danger">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 						<strong>Lỗi cmnr!</strong>
 						<ul>
@@ -32,39 +29,46 @@
 						</ul>
 					</div>
 					@endif
-						<div class="form-group m-form__group">
-							<label for="example_input_full_name">Username:</label>
-							<input type="text" name="username" class="form-control m-input" placeholder="Enter username">
-							<span class="m-form__help">Please enter your username</span>
+					<div class="form-group m-form__group row">
+						<label for="example-text-input" class="col-2 col-form-label">Username</label>
+						<div class="col-10">
+							<input class="form-control m-input" type="text" id="example-text-input" placeholder="Enter your username" name="username">
 						</div>
-						<div class="form-group m-form__group">
-							<label for="example_input_full_name">Password:</label>
-							<input type="password" name="password" class="form-control m-input" placeholder="Enter password">
-							<span class="m-form__help">Please enter your password</span>
+					</div>
+					<div class="form-group m-form__group row">
+						<label for="example-search-input" class="col-2 col-form-label">Password</label>
+						<div class="col-10">
+							<input class="form-control m-input" type="password" id="example-password-input" placeholder="Enter your password" name="password">
 						</div>
-						<div class="form-group m-form__group">
-							<label>Email address:</label>
-							<input type="email" name="email" class="form-control m-input" placeholder="Enter email">
-							<span class="m-form__help">We'll never share your email with anyone else</span>
+					</div>
+					<div class="form-group m-form__group row">
+						<label for="example-email-input" class="col-2 col-form-label">Email</label>
+						<div class="col-10">
+							<input class="form-control m-input" name="email" type="email" placeholder="Enter your email" id="example-email-input">
 						</div>
-						<div class="form-group m-form__group">
-							<label for="example_input_full_name">Full Name:</label>
-							<input type="text" name="name" class="form-control m-input" placeholder="Enter full name">
-							<span class="m-form__help">Please enter your full name</span>
-						</div>	
-		            </div>
-	            </div>
-	            <div class="m-portlet__foot m-portlet__foot--fit">
-					<div class="m-form__actions m-form__actions">
-						<button type="submit" class="btn btn-primary">Submit</button>
-						<button type="reset" class="btn btn-secondary">Cancel</button>
-						@csrf
+					</div>
+					<div class="form-group m-form__group row">
+						<label for="example-url-input" class="col-2 col-form-label">Name</label>
+						<div class="col-10">
+							<input class="form-control m-input" type="text" name="name" placeholder="Enter your name">
+						</div>
+					</div>
+				</div>
+				<div class="m-portlet__foot m-portlet__foot--fit">
+					<div class="m-form__actions">
+						<div class="row">
+							<div class="col-2">
+							</div>
+							<div class="col-10">
+								@csrf
+								<button type="submit" class="btn btn-success">Submit</button>
+								<button type="reset" class="btn btn-secondary">Cancel</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</form>
-			<!--end::Form-->
 		</div>
-		<!--end::Portlet-->
 	</div>
 </div>
 @endsection

@@ -11,6 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PageController@index');
+
+Route::get('about', 'PageController@about');
+
+Route::get('contact', 'PageController@contact');
+
+Route::get('danh-muc-san-pham/{slug}', 'ProductController@category')->name('product_category');
+
+Route::get('san-pham/{slug}', 'ProductController@product')->name('product');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
+    Route::get('users/create','UserController@create')->name('users.create');
+    Route::post('users/create','UserController@store');
+    Route::get('users','UserController@index')->name('users.index');
+    Route::get('usergroups', function(){})->name('usergroups.index');
+    Route::get('test','PageController@index');
+    Route::get('logout','PageController@index')->name('logout');
 });
