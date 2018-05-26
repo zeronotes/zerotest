@@ -7,8 +7,13 @@ use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
+    public function dashboard()
+    {
+    	return view('admin.pages.index');
+    }
+
     public function index()
     {
-    	return view('admin.metronic.index');
+
     }
 }

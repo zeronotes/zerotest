@@ -23,11 +23,33 @@ class UserFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'username' => 'required|min:3|unique:users',
-            'password' => 'required|min:3',
-            'email' => 'required|unique:users',
-            'name' => 'required|min:3'
-        ];
+        // echo $this->id;
+        // exit();
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'username' => 'required|min:3|unique:users',
+                    'password' => 'required|min:3',
+                    'email' => 'required|unique:users',
+                    'name' => 'required|min:3'
+                ];
+                break;
+            case 'PATCH':
+                if(!empty($this->password)){
+                    return [
+                        'password' => 'required|min:3',
+                        'name' => 'required|min:3'
+                    ];
+                }
+                else{
+                    return [
+                        'name' => 'required|min:3'
+                    ];
+                }
+                break;
+            default:
+                # code...
+                break;
+        }
     }
 }

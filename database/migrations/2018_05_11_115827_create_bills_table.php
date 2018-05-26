@@ -20,7 +20,7 @@ class CreateBillsTable extends Migration
             $table->string('email',100);
             $table->string('phone',20);
             $table->string('address',255);
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

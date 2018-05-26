@@ -17,9 +17,9 @@ class CreateProductCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('description');
-            $table->integer('parent_id')->unsigned();
-            $table->tinyInteger('status')->default(1);
+            $table->text('description')->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->string('status',15)->default('publish');
             $table->timestamps();
         });
     }

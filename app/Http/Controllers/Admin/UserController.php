@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('created_at','DESC')->paginate(5);
+        $users = User::orderBy('created_at','DESC')->paginate(10);
         return view('admin.users.index')->with('users', $users);
     }
 
@@ -45,9 +45,9 @@ class UserController extends Controller
         $user->email = $rq->email;
         $user->name = $rq->name;
         if($user->save()){
-            return redirect()->route('admin.users.index');
+            return redirect()->route('admin.users.index'); // redirect to route
         } else{
-            return redirect()->back();
+            return redirect()->back(); // redirect to back page
         }
     }
 
@@ -85,10 +85,12 @@ class UserController extends Controller
     public function update(UserFormRequest $rq, $id)
     {
         $user = User::find($id);
-        // if($rq->password)
+        if(!empty($rq->password)){
+            $user->password = $rq->password;
+        }
         $user->name = $rq->name;
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('msg_success','Update thành công!'); // redirect with flash session message
     }
 
     public function profile()
@@ -104,6 +106,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->action('Admin\UserController@index')->with('msg_success','Delete success!'); //redirect to controller action
     }
 }
