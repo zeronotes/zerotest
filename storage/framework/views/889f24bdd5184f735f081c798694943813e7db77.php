@@ -1,3 +1,4 @@
+<?php $__env->startSection('title','Create new user'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="row">
 	<div class="col-lg-12">
@@ -9,7 +10,7 @@
 						<i class="la la-gear"></i>
 						</span>
 						<h3 class="m-portlet__head-text">
-							New user	
+							Create new user	
 						</h3>
 					</div>
 				</div>
@@ -60,8 +61,8 @@
 							</div>
 							<div class="col-10">
 								<?php echo csrf_field(); ?>
-								<button type="submit" class="btn btn-success">Submit</button>
-								<button type="reset" class="btn btn-secondary">Cancel</button>
+								<button type="submit" class="btn btn-primary custom-small-button">Submit</button>
+								<button type="reset" class="btn btn-secondary custom-small-button btn-secondary2">Cancel</button>
 							</div>
 						</div>
 					</div>

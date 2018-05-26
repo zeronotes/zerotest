@@ -1,3 +1,4 @@
+<?php $__env->startSection('title','Edit user'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="row">
 	<div class="col-lg-12">
@@ -26,10 +27,17 @@
 						</ul>
 					</div>
 					<?php endif; ?>
+					<?php if(session('msg_success')): ?>
+					<div class="form-group m-form__group m--margin-top-10 alert alert-success">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<?php echo e(session('msg_success')); ?>
+
+					</div>
+					<?php endif; ?>
 					<div class="form-group m-form__group row">
 						<label for="example-text-input" class="col-2 col-form-label">Username</label>
 						<div class="col-10">
-							<input class="form-control m-input" type="text" value="<?php echo e($user->username); ?>" placeholder="Enter your username" name="username" readonly="true">
+							<input class="form-control m-input" type="text" value="<?php echo e($user->username); ?>" placeholder="Enter your username" name="username" readonly="">
 						</div>
 					</div>
 					<div class="form-group m-form__group row">
@@ -58,8 +66,9 @@
 							</div>
 							<div class="col-10">
 								<?php echo csrf_field(); ?>
-								<button type="submit" class="btn btn-success">Submit</button>
-								<button type="reset" class="btn btn-secondary">Cancel</button>
+								<?php echo method_field('patch'); ?>
+								<button type="submit" class="btn btn-primary custom-small-button">Submit</button>
+								<button type="reset" class="btn btn-secondary custom-small-button btn-secondary2">Cancel</button>
 							</div>
 						</div>
 					</div>
