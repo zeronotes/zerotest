@@ -31,7 +31,9 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::where('status','publish')->get();
-        dd($categories);
+        //$test = test01();
+        //dd($test);
+        //dd($categories);
         return view('admin.posts.create');
     }
 
