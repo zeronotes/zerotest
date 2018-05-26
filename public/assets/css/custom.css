@@ -1,0 +1,99 @@
+/* ghi đè css của template */
+
+.btn-primary {
+    background: #0085ba !important;
+    border-color: #0073aa #006799 #006799 !important;
+    box-shadow: 0 1px 0 #006799 !important;
+    color: #fff;
+    text-decoration: none !important;
+    text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799 !important;
+}
+
+.btn-primary:hover {
+     background: #008ec2 !important; 
+     border-color: #006799 !important; 
+     color: #fff; 
+}
+
+/* đè xong */
+
+.xanhwp {
+    color: #0073aa !important;
+}
+
+.xanhwp:hover {
+	color: #518eef !important;
+	text-decoration: unset !important;
+}
+
+.custom-small-button{
+	height: 30px;
+    line-height: 28px;
+    padding: 0 12px 2px;
+}
+
+.btn-secondary2{
+	color: #555 !important;
+    border-color: #ccc !important;
+    background: #f7f7f7 !important;
+    box-shadow: 0 1px 0 #ccc !important;
+    vertical-align: top !important;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 28px;
+    height: 31px;
+    margin: 0;
+    padding: 0 10px 1px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.m-portlet-publish{
+	height: 2.5rem !important;
+	padding-left: 10px !important;
+	padding-top: 0px  !important;
+	padding-right: 1px !important;
+	/*margin-top: -5px !important;*/
+	/*display: block !important;*/
+}
+
+.portlet-publish-caption{
+	padding-top: 10px !important;
+	margin-top: 0px !important;
+}
+
+.portlet-publish-caption-title{
+	display: block !important;
+}
+
+.portlet-publish-tools{
+	padding-top: 0px !important;
+	margin-top: 0px !important;
+}
+
+.portlet-publish-tools-nav{
+	padding-top: 0px !important;
+	margin-top: 0px !important;
+	/*margin-right: -10px;*/
+}
+
+.portlet-publish-body{
+	padding-top: 8px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-bottom: 8px !important;
+}
+
+.m-portlet-head-create-post {
+    height: 4.1rem !important;
+}
+
+.create-post-title{
+	font-size: 1.15em;
+}
