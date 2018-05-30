@@ -43,17 +43,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Base Styles -->
 
         <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico" /> 
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-37564768-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-@yield('custom_head_js')
+    
+		@yield('custom_head')
 </head>
     <!-- end::Head -->
 
@@ -162,7 +153,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <!--begin::Page Resources --> 
                 <script src="/assets/demo/default/custom/components/portlets/tools.js" type="text/javascript"></script>
                 <!--end::Page Resources -->   
-        
         
                 @yield('custom_footer_js')
             </body>

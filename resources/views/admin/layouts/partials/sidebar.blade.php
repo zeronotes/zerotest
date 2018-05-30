@@ -13,8 +13,8 @@
          <i class="m-menu__section-icon flaticon-more-v3"></i>
       </li>
       <!-- <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover"> -->
-      <li class="m-menu__item m-menu__item--submenu m-menu__item--open m-menu__item--expanded" aria-haspopup="true" m-menu-submenu-toggle="hover">
-         <a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-layers"></i><span class="m-menu__link-text">Posts</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+      <li class="m-menu__item m-menu__item--submenu m-menu__item--open" aria-haspopup="true" m-menu-submenu-toggle="hover">
+         <div class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-layers"></i><span class="m-menu__link-text">Posts</span><i class="m-menu__ver-arrow la la-angle-right"></i></div>
          <div class="m-menu__submenu ">
             <span class="m-menu__arrow"></span>
             <ul class="m-menu__subnav">
@@ -27,7 +27,7 @@
          </div>
       </li>
       <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
-         <a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-share"></i><span class="m-menu__link-text">Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+         <div class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-share"></i><span class="m-menu__link-text">Pages</span><i class="m-menu__ver-arrow la la-angle-right"></i></div>
          <div class="m-menu__submenu ">
             <span class="m-menu__arrow"></span>
             <ul class="m-menu__subnav">
@@ -44,7 +44,7 @@
          </div>
       </li>
       <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
-         <a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-interface-7"></i><span class="m-menu__link-text">Products</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+         <div class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-interface-7"></i><span class="m-menu__link-text">Products</span><i class="m-menu__ver-arrow la la-angle-right"></i></div>
          <div class="m-menu__submenu ">
             <span class="m-menu__arrow"></span>
             <ul class="m-menu__subnav">
@@ -62,7 +62,7 @@
          <i class="m-menu__section-icon flaticon-more-v3"></i>
       </li>
       <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
-         <a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-interface-9"></i><span class="m-menu__link-text">Users</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+         <div class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-interface-9"></i><span class="m-menu__link-text">Users</span><i class="m-menu__ver-arrow la la-angle-right"></i></div>
          <div class="m-menu__submenu ">
             <span class="m-menu__arrow"></span>
             <ul class="m-menu__subnav">
@@ -73,7 +73,7 @@
          </div>
       </li>
       <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
-         <a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-settings"></i><span class="m-menu__link-text">Settings</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
+         <div  class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-settings"></i><span class="m-menu__link-text">Settings</span><i class="m-menu__ver-arrow la la-angle-right"></i></div>
          <div class="m-menu__submenu ">
             <span class="m-menu__arrow"></span>
             <ul class="m-menu__subnav">
