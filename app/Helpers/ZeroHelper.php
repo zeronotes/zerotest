@@ -6,7 +6,7 @@ if(!function_exists('test01')){
 	}
 }
 
-if(!function_exists('')){
+if(!function_exists('dequymenudacap')){
 	function dequymenudacap($data, $parent_id=0, $text='',$selected=0, $self_id=null)
 	{
 	    foreach($data as $key => $item)

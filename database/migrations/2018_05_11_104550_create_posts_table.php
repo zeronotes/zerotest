@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title',255);
             $table->string('slug')->unique();
             $table->text('content');
-            $table->string('featured_image');
+            $table->string('featured_image')->nullable();
             $table->integer('author_id');
             $table->string('status',20)->default('publish');
             $table->timestamps();
