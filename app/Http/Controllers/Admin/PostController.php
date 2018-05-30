@@ -106,13 +106,12 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         
-        // $rela_categories = Relationship::where('object_id',$id)->where('parent_type','post_category')->get();
         $rela_categories = $post->categories;
         $categories_id = [];
         foreach ($rela_categories as $value) {
             $categories_id[] = $value->parent_id;
         }
-        //$rela_tags = Relationship::where('object_id',$id)->where('parent_type','post_tag')->get();
+        
         $rela_tags = $post->tags;
         $tags_name = '';
         foreach ($rela_tags as $value) {
@@ -131,7 +130,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostFormRequest $rq, $id)
     {
         //
     }

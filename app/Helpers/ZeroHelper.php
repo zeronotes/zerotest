@@ -6,18 +6,28 @@ if(!function_exists('test01')){
 	}
 }
 
-if(!function_exists('dequymenudacap')){
-	function dequymenudacap($data, $parent_id=0, $text='',$selected=0, $self_id=null)
+if(!function_exists('multi_level_category')){
+	function multi_level_category($data, $parent_id=0, $marginLeft=0,$select=[])
 	{
-	    foreach($data as $key => $item)
-	    {
-	        if($item['parent_id'] == $parent_id and $item['id'] != $self_id){
-	            echo '<option ';
-	            if($selected == $item['id']) echo 'selected ';
-	            echo 'value="'.$item['id'].'">' . $text.$item['name'].'</option>';
-	            unset($data[$key]);
-	            dequymenudacap($data, $item['id'], $text.'--',$selected, $self_id);
-	        }
-	    }
+		foreach($data as $key => $item)
+		{
+			if($item['parent_id'] == $parent_id){
+				echo '<label class="m-checkbox checkcl" style="margin-left: '.$marginLeft.'px;">';
+				echo '<input type="checkbox" name="category_check_list[]" value="'.$item['id'].'"';
+	            if(in_array($item['id'], $select)) echo ' checked';
+	            echo '>'.$item['name'];
+	            echo '<span></span></label>';
+				unset($data[$key]);
+				multi_level_category($data, $item['id'], $marginLeft+18,$select);
+			}
+		}
+	}
+}
+
+
+if(!function_exists('test_foreach')){
+	function test_foreach(){
+		echo 'fuck';
+		return [1,2,5,6,8];
 	}
 }

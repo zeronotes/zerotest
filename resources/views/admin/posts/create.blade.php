@@ -2,7 +2,6 @@
 @section('title','Create new post')
 @section('custom_head')
 <link rel="stylesheet" href="/libs/bootstrap-tags-input/bootstrap-tagsinput.css" type="text/css" />
-<link rel="stylesheet" href="/libs/bootstrap-tags-input/examples/assets/app.css">
 @endsection
 @section('content')
 <form method="post" id=postform class="row">
@@ -27,8 +26,9 @@
 				<div class="m-portlet__body">	
 					<div class="m-form__section m-form__section--first">
 					@if($errors->any())
-					<div class="form-group m-form__group m--margin-top-10 alert alert-danger">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<div class="alert alert-danger alert-dismissible fade show">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						</button>
 						<strong>Lỗi cmnr!</strong>
 						<ul>
 						@foreach($errors->all() as $error)
@@ -111,32 +111,16 @@
 			<div class="m-portlet__body portlet-publish-body" m-hidden-height="235" style="">
 				<div class="_mCS_6 mCS-autoHide" data-scrollbar-shown="true" data-scrollable="true" data-max-height="235" style="overflow: visible; max-height: 235px; position: relative;">
 					<div class="m-form__group form-group">
-										<div class="m-checkbox-list">
-<?php
-function dequymenudacap1($data, $parent_id=0, $marginLeft=0,$select=[])
-{
-	foreach($data as $key => $item)
-	{
-		if($item['parent_id'] == $parent_id){
-			echo '<label class="m-checkbox checkcl" style="margin-left: '.$marginLeft.'px;">';
-			echo '<input type="checkbox" name="category_check_list[]" value="'.$item['id'].'"';
-            if(in_array($item['id'], $select)) echo ' checked';
-            echo '>'.$item['name'];
-            echo '<span></span></label>';
-			unset($data[$key]);
-			dequymenudacap1($data, $item['id'], $marginLeft+18,$select);
-		}
-	}
-}
-
-$selected1 = old('category_check_list');
-if(!isset($selected1)){
- 	$selected1 = [];
-}
-dequymenudacap1($categories,0,0,$selected1);
-?>
-										</div>
-									</div>
+						<div class="m-checkbox-list">
+							<?php
+							$selected1 = old('category_check_list');
+							if(!isset($selected1)){
+							 	$selected1 = [];
+							}
+							multi_level_category($categories,0,0,$selected1);
+							?>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -206,101 +190,7 @@ dequymenudacap1($categories,0,0,$selected1);
 <!--begin::Page Resources --> 
     <script src="/assets/demo/default/custom/components/portlets/tools.js" type="text/javascript"></script>
     <script src="/libs/ckeditor/ckeditor.js"></script>
-    <script>
-   //  	CKEDITOR.replace('post_content',{
-   //  		autoGrow_onStartup: true,
-   //  		//extraPlugins: 'autogrow',
-			// autoGrow_minHeight: 500,
-			// autoGrow_maxHeight: 800,
-			// autoGrow_bottomSpace: 50
-   //  	});
-    </script>
     <script src="/libs/bootstrap-tags-input/bootstrap-tagsinput.min.js"></script>
     <script src="/assets/js/typeahead.bundle.min.js"></script>
     <script src="/assets/js/custom_posts.js"></script>
-    <script>
-    // typeahead
-		// var citynames = new Bloodhound({
-		//   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-		//   queryTokenizer: Bloodhound.tokenizers.whitespace,
-		//   prefetch: {
-		//     url: '/api/tags',
-		//     // url: 'assets/citynames.json',
-		//     filter: function(list) {
-		//       return $.map(list, function(cityname) {
-		//         return { name: cityname }; });
-		//     }
-		//   }
-		// });
-		// citynames.initialize();
-
-		// $('#tags').tagsinput({
-		//   typeaheadjs: {
-		//     name: 'citynames',
-		//     displayKey: 'name',
-		//     valueKey: 'name',
-		//     source: citynames.ttAdapter()
-		//   }
-		// });
-	// end typeahead
-
-		// khong submit khi enter
-		// document.getElementById("postform").onkeypress = function(e) {
-		// 	  var key = e.charCode || e.keyCode || 0;     
-		// 	  if (key == 13) {
-		// 	    // alert("I told you not to, why did you do it?");
-		// 	    e.preventDefault();
-		// 	  }
-		// }
-
-		//test
-		// $('#test_tags').click(function(){
-		// 	// alert('ll');
-		// 	test = $("#tags").val();
-		// 	alert(test);
-		// });
-		</script>
-<!--end::Page Resources -->
-
-<!-- featured image -->
-<script type="text/javascript">
-// function openKCFinder(div) {
-//     window.KCFinder = {
-//         callBack: function(url) {
-//             window.KCFinder = null;
-//             div.innerHTML = '<div style="margin:5px">Loading...</div>';
-//             var img = new Image();
-//             img.src = url;
-//             img.onload = function() {
-//                 div.innerHTML = '<img id="img" src="' + url + '" /><br>Click the image to edit or update';
-//                 $('#featured_image').val(url);
-//                 var img = document.getElementById('img');
-//                 var o_w = img.offsetWidth;
-//                 var o_h = img.offsetHeight;
-//                 var f_w = div.offsetWidth;
-//                 var f_h = div.offsetHeight;
-//                 if ((o_w > f_w) || (o_h > f_h)) {
-//                     if ((f_w / f_h) > (o_w / o_h))
-//                         f_w = parseInt((o_w * f_h) / o_h);
-//                     else if ((f_w / f_h) < (o_w / o_h))
-//                         f_h = parseInt((o_h * f_w) / o_w);
-//                     img.style.width = f_w + "px";
-//                     img.style.height = f_h + "px";
-//                 } else {
-//                     f_w = o_w;
-//                     f_h = o_h;
-//                 }
-//                 img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
-//                 img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
-//                 img.style.visibility = "visible";
-//             }
-//         }
-//     };
-//     window.open('/libs/kcfinder/browse.php?type=images&dir=images/public',
-//         'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
-//         'directories=0, resizable=1, scrollbars=0, width=800, height=600'
-//     );
-// }
-</script>
-<!-- /featured image -->
 @endsection
