@@ -42,4 +42,13 @@ CKEDITOR.editorConfig = function( config ) {
    	config.filebrowserUploadUrl = '/libs/kcfinder/upload.php?opener=ckeditor&type=files';
    	config.filebrowserImageUploadUrl = '/libs/kcfinder/upload.php?opener=ckeditor&type=images';
    	config.filebrowserFlashUploadUrl = '/libs/kcfinder/upload.php?opener=ckeditor&type=flash';
+
+   	config.extraPlugins = 'autogrow,wordcount,panelbutton,floatpanel,colorbutton,button,richcombo,panel,listblock,font,justify,lineutils,clipboard,dialog,dialogui,toolbar,notification,widget,image2,tabletools,contextmenu,menu,tableresize,codesnippet';
+   	config.wordcount = {
+    showWordCount: true, // Whether or not you want to show the Word Count
+    showParagraphs: false,
+    showCharCount: true, // Whether or not you want to show the Char Count
+    // maxWordCount: 2000, // Maximum allowed Word Count
+    // maxCharCount: 10000 // Maximum allowed Char Count
+	};
 };
