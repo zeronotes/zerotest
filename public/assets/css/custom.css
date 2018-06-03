@@ -162,3 +162,8 @@
 	text-decoration: none !important;
 	color: #666 !important;
 }
+
+.display-msg {
+	padding-left: 15px;
+	padding-right: 15px;
+}

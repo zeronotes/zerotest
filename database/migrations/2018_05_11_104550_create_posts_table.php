@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->string('featured_image')->nullable();
             $table->integer('author_id');
+            $table->string('post_type',10)->default('post');
             $table->string('status',20)->default('publish');
             $table->timestamps();
         });

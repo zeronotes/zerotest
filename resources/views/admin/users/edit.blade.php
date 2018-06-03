@@ -17,23 +17,10 @@
 			<!--begin::Form-->
 			<form method="post" class="m-form m-form--fit m-form--label-align-right">
 				<div class="m-portlet__body">
-					@if($errors->any())
-					<div class="form-group m-form__group m--margin-top-10 alert alert-danger">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>Lỗi cmnr!</strong>
-						<ul>
-						@foreach($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach	
-						</ul>
+					<div style="padding-left: 15px; padding-right: 15px;">
+					@include('admin.layouts.partials.alert-error')
+					@include('admin.layouts.partials.alert-success')
 					</div>
-					@endif
-					@if(session('msg_success'))
-					<div class="form-group m-form__group m--margin-top-10 alert alert-success">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						{{ session('msg_success') }}
-					</div>
-					@endif
 					<div class="form-group m-form__group row">
 						<label for="example-text-input" class="col-2 col-form-label">Username</label>
 						<div class="col-10">

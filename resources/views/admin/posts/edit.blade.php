@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
-@section('title','Create new post')
-@section('custom_head')
+@section('title','Edit post')
+@section('head_custom')
 <link rel="stylesheet" href="/libs/bootstrap-tags-input/bootstrap-tagsinput.css" type="text/css" />
 @endsection
 @section('content')
@@ -17,7 +17,7 @@
 						<i class="la la-gear"></i>
 						</span>
 						<h3 class="m-portlet__head-text">
-							Add New Post
+							Edit Post
 						</h3>
 					</div>
 				</div>
@@ -26,23 +26,13 @@
 			<div class="m-form">
 				<div class="m-portlet__body">	
 					<div class="m-form__section m-form__section--first">
-					@if($errors->any())
-						<div class="alert alert-danger alert-dismissible fade show">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						</button>
-						<strong>Lỗi cmnr!</strong>
-						<ul>
-						@foreach($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach	
-						</ul>
-					</div>
-					@endif
+						@include('admin.layouts.partials.alert-error')
+						@include('admin.layouts.partials.alert-success')
 						<div class="form-group m-form__group">
-							<input name="title" type="text" class="form-control m-input create-post-title" value="<?php if(old('title') !== null) echo old('title'); else echo $post->title; ?>" placeholder="Enter title here">
+							<input name="title" type="text" class="form-control m-input create-post-title" value="<?php if (old('title') !== null) echo old('title'); else echo $post->title; ?>" placeholder="Enter title here">
 						</div>
 						<div class="form-group m-form__group">
-							<textarea name="content" class="form-control m-input" id="post_content"><?php if(old('content') !== null) echo old('content'); else echo $post->content; ?></textarea>
+							<textarea name="content" class="form-control m-input" id="post_content"><?php if (old('content') !== null) echo old('content'); else echo $post->content; ?></textarea>
 						</div>			
 						
 		            </div>
@@ -77,13 +67,13 @@
 						<div class="col-lg-8">
 							<select name="status" class="form-control m-input form-control-sm" id="exampleSelect1">
 							<?php
-							if(old('status') !== null)
+							if (old('status') !== null)
 								$status = old('status');
 							else
 								$status = $post->status; 
 							?>
-							<option value="publish" <?php if($status == 'publish') echo 'selected'; ?> >Publish</option>
-							<option value="draft" <?php if($status == 'draft') echo 'selected'; ?>>Draft</option>
+							<option value="publish" <?php if ($status == 'publish') echo 'selected'; ?> >Publish</option>
+							<option value="draft" <?php if ($status == 'draft') echo 'selected'; ?>>Draft</option>
 						</select>
 						</div>
 					</div>
@@ -120,7 +110,7 @@
 					<div class="m-form__group form-group">
 						<div class="m-checkbox-list">
 							<?php
-							if(old('category_check_list'))
+							if (old('category_check_list'))
 								$selected = old('category_check_list');
 							else
 								$selected = $categories_id;
@@ -154,7 +144,7 @@
 			<div class="m-portlet__body portlet-publish-body" m-hidden-height="150" style="">
 			<?php
 			$tags = old('tags');
-			if($tags == null){
+			if ($tags == null) {
 				$tags = $tags_name;
 			}
 			?>
@@ -183,11 +173,11 @@
 			<div class="m-portlet__body portlet-publish-body" m-hidden-height="120" style="">
 				<?php
 				$featured_image = old('featured_image');
-				if(!isset($featured_image)){
+				if (! isset($featured_image)) {
 					$featured_image = $post->featured_image;
 				}
 				?>
-				@if($featured_image !== null)
+				@if ($featured_image !== null)
 				<input type="hidden" name="featured_image" id="featured_image" value="{{ $featured_image }}" />
 				<div id="image" onclick="openKCFinder(this)">
 					<img id="img" src="{{ $featured_image }}" style="width: 100%;margin-left: 0px; margin-top: 6px; visibility: visible;" /><br>Click the image to edit or update
@@ -195,7 +185,7 @@
 				@else
 				<input type="hidden" name="featured_image" id="featured_image" />
 				<div id="image" onclick="openKCFinder(this)">
-					<div style="margin:5px"><a href="#">Click here to upload or choose an image</a></div>
+					<div style="margin:5px"><span>Click here to upload or choose an image</span></div>
 				</div>	
 				@endif
 				
@@ -205,7 +195,7 @@
 	</div>
 </form>		
 @endsection
-@section('custom_footer_js')
+@section('footer_custom')
 <!--begin::Page Resources --> 
     <script src="/assets/demo/default/custom/components/portlets/tools.js" type="text/javascript"></script>
     <script src="/libs/ckeditor/ckeditor.js"></script>

@@ -44,8 +44,8 @@ class UserController extends Controller
         $user->password = Hash::make($rq->password);
         $user->email = $rq->email;
         $user->name = $rq->name;
-        if($user->save()){
-            return redirect()->route('admin.users.index'); // redirect to route
+        if ($user->save()) {
+            return redirect()->route('admin.users.index')->with('msg_success','Created successfully.'); // redirect to route
         } else{
             return redirect()->back(); // redirect to back page
         }
@@ -71,7 +71,6 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        // dd($user);
         return view('admin.users.edit')->with('user', $user);
     }
 
@@ -85,7 +84,7 @@ class UserController extends Controller
     public function update(UserFormRequest $rq, $id)
     {
         $user = User::find($id);
-        if(!empty($rq->password)){
+        if (! empty($rq->password)) {
             $user->password = $rq->password;
         }
         $user->name = $rq->name;
@@ -108,6 +107,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->action('Admin\UserController@index')->with('msg_success','Delete success!'); //redirect to controller action
+        return redirect()->action('Admin\UserController@index')->with('msg_success','Deleted successfully.'); //redirect to controller action
     }
 }

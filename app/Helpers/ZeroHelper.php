@@ -1,20 +1,21 @@
 <?php 
 
-if(!function_exists('test01')){
-	function test01(){
+if (! function_exists('test01')) {
+	function test01()
+	{
 		return 'lol';
 	}
 }
 
-if(!function_exists('multi_level_category')){
+if (! function_exists('multi_level_category')) {
 	function multi_level_category($data, $parent_id=0, $marginLeft=0,$select=[])
 	{
-		foreach($data as $key => $item)
+		foreach ($data as $key => $item)
 		{
-			if($item['parent_id'] == $parent_id){
+			if ($item['parent_id'] == $parent_id) {
 				echo '<label class="m-checkbox checkcl" style="margin-left: '.$marginLeft.'px;">';
 				echo '<input type="checkbox" name="category_check_list[]" value="'.$item['id'].'"';
-	            if(in_array($item['id'], $select)) echo ' checked';
+	            if (in_array($item['id'], $select)) echo ' checked';
 	            echo '>'.$item['name'];
 	            echo '<span></span></label>';
 				unset($data[$key]);
@@ -24,10 +25,58 @@ if(!function_exists('multi_level_category')){
 	}
 }
 
+// return array
+if (! function_exists('multiLevelCategoryArray')) {
+	function multiLevelCategoryArray(Array $data, $parent = 0, $text = '') {
+	    $tree = array();
+	    foreach ($data as $key => $item) {
+	        if ($item['parent_id'] == $parent) {
+	        	unset($data[$key]);
+	        	$item['text'] = $text;
+	        	$tree[] = $item;
+	            $children = multiLevelCategoryArray($data, $item['id'], $text.'—');
+	            // set a trivial key
+	            if (!empty($children)) {
+	            	foreach ($children as $value) {
+	            		$tree[] = $value;
+	            	}
+	            }
+	            
+	        }
+	    }
+	    return $tree;
+	}
+}
 
-if(!function_exists('test_foreach')){
-	function test_foreach(){
-		echo 'fuck';
+// if (! function_exists('buildTree')) {
+// 	function buildTree(Array $data, $parent = 0) {
+// 	    $tree = array();
+// 	    foreach ($data as $key => $item) {
+// 	        if ($item['parent_id'] == $parent) {
+// 	        	unset($data[$key]);
+// 	            $children = buildTree($data, $item['id']);
+// 	            // set a trivial key
+// 	            if (!empty($children)) {
+// 	                $item['_children'] = $children;
+// 	            }
+// 	            $tree[] = $item;
+// 	        }
+// 	    }
+// 	    return $tree;
+// 	}
+// }
+
+
+if (! function_exists('test_foreach')) {
+	function test_foreach() 
+	{
+		$post = new App\Post;
+		$title = str_random(20);
+		$post->title = $title;
+		$post->content = 'test test';
+		$post->slug = str_slug($title);
+		$post->author_id = 1;
+		$post->save();
 		return [1,2,5,6,8];
 	}
 }

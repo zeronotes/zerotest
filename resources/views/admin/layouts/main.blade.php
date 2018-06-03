@@ -30,7 +30,7 @@
 
         <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico" /> 
     
-		@yield('custom_head')
+		@yield('head_custom')
 </head>
     <!-- end::Head -->
 
@@ -135,7 +135,7 @@
                 <script src="/assets/demo/default/custom/components/portlets/tools.js" type="text/javascript"></script>
                 <!--end::Page Resources -->   
         
-                @yield('custom_footer_js')
+                @yield('footer_custom')
             </body>
     <!-- end::Body -->
 </html>

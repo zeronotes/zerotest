@@ -22,12 +22,7 @@
 		</div>
 	</div>
 	<div class="m-portlet__body">
-		@if(session('msg_success'))
-		<div class="alert alert-success">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			{{ session('msg_success') }}
-		</div>
-		@endif
+		@include('admin.layouts.partials.alert-success')
 		<!--begin: Datatable -->
 		<div class="m-datatable m-datatable--default m-datatable--brand m-datatable--loaded"><table class="m-datatable__table" id="html_table" width="100%" style="display: block; min-height: 300px; /*overflow-x: auto;*/">
 			<thead class="m-datatable__head">
@@ -76,7 +71,7 @@
 </div>
 
 @endsection
-@section('custom_footer_js')
+@section('footer_custom')
 	<script src="/assets/js/jquery.confirm.min.js"></script>
 	<script>
 	  $('.formdelete').submit(function(event) {

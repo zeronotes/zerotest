@@ -19,39 +19,31 @@
 			<!--begin::Form-->
 			<form method="post" class="m-form m-form--fit m-form--label-align-right">
 				<div class="m-portlet__body">
-					@if($errors->any())
-					<div class="form-group m-form__group m--margin-top-10 alert alert-danger">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>Lỗi cmnr!</strong>
-						<ul>
-						@foreach($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach	
-						</ul>
+					<div class="display-msg">
+						@include('admin.layouts.partials.alert-error')
 					</div>
-					@endif
 					<div class="form-group m-form__group row">
 						<label for="example-text-input" class="col-2 col-form-label">Username</label>
 						<div class="col-10">
-							<input class="form-control m-input" type="text" id="example-text-input" placeholder="Enter your username" name="username">
+							<input class="form-control m-input" type="text" value="{{ old('username') }}" id="example-text-input" placeholder="Enter your username" name="username">
 						</div>
 					</div>
 					<div class="form-group m-form__group row">
 						<label for="example-search-input" class="col-2 col-form-label">Password</label>
 						<div class="col-10">
-							<input class="form-control m-input" type="password" id="example-password-input" placeholder="Enter your password" name="password">
+							<input class="form-control m-input" type="password" id="example-password-input" placeholder="Enter your password" value="{{ old('password') }}" name="password">
 						</div>
 					</div>
 					<div class="form-group m-form__group row">
 						<label for="example-email-input" class="col-2 col-form-label">Email</label>
 						<div class="col-10">
-							<input class="form-control m-input" name="email" type="email" placeholder="Enter your email" id="example-email-input">
+							<input class="form-control m-input" name="email" type="email" placeholder="Enter your email" value="{{ old('email') }}" id="example-email-input">
 						</div>
 					</div>
 					<div class="form-group m-form__group row">
 						<label for="example-url-input" class="col-2 col-form-label">Name</label>
 						<div class="col-10">
-							<input class="form-control m-input" type="text" name="name" placeholder="Enter your name">
+							<input class="form-control m-input" type="text" value="{{ old('name') }}" name="name" placeholder="Enter your name">
 						</div>
 					</div>
 				</div>

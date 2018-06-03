@@ -1,72 +1,53 @@
-@extends('admin.layouts.coreui')
-@section('title','Create category')
-@section('content')
-<div class="animated fadeIn">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    <strong>Create new category</strong>
+        <div class="m-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <span class="m-portlet__head-icon m--hide">
+                        <i class="la la-gear"></i>
+                        </span>
+                        <h3 class="m-portlet__head-text">
+                            Add New Category
+                        </h3>
+                    </div>
                 </div>
-                <div class="card-block">
-                @include('admin.blocks.errors')
-                    <form action="" method="post">
-                    	<input type="hidden" name="_token" value="{{csrf_token()}}">
-                    	<div class="form-group">
-                    		<label for="parent_id">Parent</label>
-                    		 <select id="select" name="parent_id" class="form-control">
-                                    <option value="0">No parent</option>
-<?php 
-function dequymenudacap($data, $parent_id=0, $text='',$select=0)
-{
-	foreach($data as $key => $item)
-	{
-		if($item['parent_id'] == $parent_id){
-			echo '<option ';
-            if($select == $item['id']) echo 'selected ';
-            echo 'value="'.$item['id'].'">' . $text.$item['name'].'</option>';
-			unset($data[$key]);
-			dequymenudacap($data, $item['id'], $text.'--',$select);
-		}
-	}
-}
-$select = old('parent_id');
-dequymenudacap($categories,0,'',$select);
-?>
-                            	</select>
-                    		</div>
-                        <div class="form-group">
-                            <label for="name">Category name *</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter category name..">
-                            <!-- <span class="help-block">Please enter your email</span> -->
-                        </div>
-                        <div class="form-group">
-                            <label for="slug">Slug</label>
-                            <input type="text" id="nf-password" name="slug" class="form-control" placeholder="Enter Slug..">
-                            <!-- <span class="help-block">Please enter your password</span> -->
-                        </div>
-                        <div class="form-goroup">
-                        	<label for="description">Description</label>
-                        	<textarea id="description" name="description" rows="3" maxlength="255" class="form-control" placeholder="Description..">{{old('description')}}</textarea>
-                        </div>
-                        <div class="form-group">
-                        	<label for="status">Status</label>
-                        	<select id="select" name="status" class="form-control">
-                                    <option value="1">Publish</option>
-                                    <option @if(old('status') == '0') {{'selected '}} @endif value="0">Hidden</option>
-                                </select>
-                        </div>
-                        <div class="card-footer">
-                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Save</button>
-                    <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
-                </div>
-                    </form>
-                </div>
-                
             </div>
+            <!--begin::Form-->
+            <form method="post" action="{{ route('admin.categories.create') }}" class="m-form">
+                <div class="m-portlet__body">   
+                    <div class="m-form__section m-form__section--first">
+
+                        <div class="form-group m-form__group">
+                            <label for="example_input_full_name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control m-input" placeholder="Enter category name" onfocusout="strSlug()">
+                            <span class="m-form__help">The name is how it appears on your site.</span>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label onfocus>Slug</label>
+                            <input type="text" id="slug" class="form-control m-input" placeholder="Enter slug" name="slug">
+                            <span class="m-form__help">The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.</span>
+                        </div>          
+                        <div class="form-group m-form__group">
+                            <label for="parent_category">Parent Category</label>
+                            <select name="parent_id" class="form-control m-input" id="parent_category">
+                                <option value="0">None</option>
+                                @foreach ($data as $row)
+                                <option value="{{ $row['id'] }}">{{ $row['text'].$row['name'] }}</option>
+                                @endforeach
+                            </select>
+                        </div>          
+                        <div class="form-group m-form__group">
+                            <label>Description</label>
+                            <textarea class="form-control m-input" name="description" rows="5" placeholder="Enter description"></textarea>
+                            <span class="m-form__help">The description is not prominent by default; however, some themes may show it.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__foot m-portlet__foot--fit">
+                    <div class="m-form__actions m-form__actions">
+                        @csrf
+                        <button type="submit" class="btn btn-primary custom-small-button">Add New Category</button>
+                    </div>
+                </div>
+            </form>
+            <!--end::Form-->
         </div>
-        <!--/.col-->
-    </div>
-                    
-</div>
-@endsection

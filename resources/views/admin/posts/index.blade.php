@@ -22,12 +22,7 @@
 		</div>
 	</div>
 	<div class="m-portlet__body">
-		@if(session('msg_success'))
-		<div class="alert alert-success">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			{{ session('msg_success') }}
-		</div>
-		@endif
+		@include('admin.layouts.partials.alert-success')
 		<!--begin: Datatable -->
 		<div class="m-datatable m-datatable--default m-datatable--brand m-datatable--loaded"><table class="m-datatable__table" id="html_table" width="100%" style="display: block; min-height: 300px; /*overflow-x: auto;*/">
 			<thead class="m-datatable__head">
@@ -46,7 +41,7 @@
 			<td data-field="Order ID" class="m-datatable__cell align-top">
 			<span style="width: 250px; font-weight: 500;"><a class="xanhwp first-uppercase" href="{{ route('admin.posts.edit',$row->id) }}">{{ $row->title }}</a></span>
 			<span style="width: 250px; font-weight: 500;" class="child-hidden">
-				<form method="post" action="{{ route('admin.posts.delete',$row->id) }}">
+				<form method="post" action="{{ route('admin.posts.delete',$row->id) }}" class="formdelete">
 					<div class="row">
 						<div class="col-lg-1 col-xs-1 text-left" style="padding-right: 1px; padding-left: 5px"></div>
 						<div class="col-lg-2 col-xs-3 text-left" style="padding-right: 1px; padding-left: 5px">
@@ -107,4 +102,31 @@
 		<!--end: Datatable -->
 	</div>
 </div>
+@endsection
+@section('footer_custom')
+<script src="/assets/js/jquery.confirm.min.js"></script>
+	<script>
+	  $('.formdelete').submit(function(event) {
+	    event.preventDefault();
+	    var form = $(this)[0];
+
+	    $.confirm({
+	      // columnClass: 'col-md-4 col-md-offset-4',
+	      // theme: 'white',
+	      // title: 'Delete',
+	      text: "Are you sure you want to delete?",
+	      confirmButton: 'Ok',
+	      cancelButton: 'Cancel',
+	      confirmButtonClass: 'btn-success',
+	      cancelButtonClass: 'btn-danger',
+	      confirm: function() {
+	        //Submit the form
+	        form.submit();
+	      },
+	      cancel: function() {
+	        //Do nothing
+	      }
+	    });
+	  });
+	</script>
 @endsection

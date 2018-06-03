@@ -35,6 +35,7 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('user-groups', function(){})->name('usergroups.index');
 
     /* Posts */
+    Route::get('posts/show/{id}','PostController@show');
     Route::get('posts','PostController@index')->name('posts.index');
     Route::get('posts/create','PostController@create')->name('posts.create');
     Route::post('posts/create','PostController@store');
@@ -50,6 +51,8 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('categories/edit/{id}','CategoryController@edit')->name('categories.edit');
     Route::patch('categories/edit/{id}','CategoryController@update');
     Route::delete('categories/delete/{id}','CategoryController@destroy')->name('categories.delete');
+    Route::get('categories/search','CategoryController@search')->name('categories.search');
+    Route::post('categories/search','CategoryController@search');
 
     // Tags
     Route::get('tags','TagController@index')->name('tags.index');
