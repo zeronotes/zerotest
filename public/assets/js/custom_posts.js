@@ -87,3 +87,57 @@ CKEDITOR.replace('post_content',{
         'directories=0, resizable=1, scrollbars=0, width=800, height=600'
     );
 }
+
+
+/* Slug */
+$('#title').focusout(function() {
+	var slug = $('#slug').val();
+	if (!slug) {
+		createSlug();
+	}
+});
+
+function createSlug(huy = 0)
+{
+	$.ajax({
+        url : "/admin/posts/create-slug",
+        type : "post", 
+        dateType:"html", 
+        data : { 
+             title : $('#title').val(),
+             new_slug : $('#new-post-slug').val(),
+             slug : $('#slug').val(),
+             fvl : huy,
+             _token : $('#_token').val(),
+        },
+        beforeSend: function(){
+            // $('#pic_load').removeClass('hide');
+            // return false;
+        },
+        success : function (result){
+            // $('#pic_load').addClass('hide');
+            $('#edit-slug-box').html(result);
+        }
+    });
+}
+
+$('#edit-slug-box').delegate('#edit-slug-buttons', 'click', function() {
+	var base_url1 = $('#edit-slug-box').data('url');
+	var current_slug1 = $('#slug').val();
+	var result1 = '<strong>Permalink:</strong>	<span id="sample-permalink">' + base_url1 + '/<span id="editable-post-name"><input type="text" id="new-post-slug" value="' + current_slug1 +'" autocomplete="off"></span>/</span>	&lrm;<span id="edit-slug-buttons"><button type="button" class="slug-button button button-small" id="ok_edit_slug">Ok</button> <a href="javascript:;" id="cancel_edit_slug" class="button-link">Hủy</a></span><input type="hidden" name="slug" id="slug" value="' + current_slug1 +'">';
+	$('#edit-slug-box').html(result1);
+});
+
+$('#edit-slug-box').delegate('#ok_edit_slug', 'click', function() {
+	createSlug();
+});
+
+$('#edit-slug-box').delegate('#new-post-slug', 'keypress', function(e) {
+	if(e.which == 13) {
+        createSlug();
+    }
+});
+
+$('#edit-slug-box').delegate('#cancel_edit_slug', 'click', function() {
+	createSlug(1);
+});

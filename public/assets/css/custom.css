@@ -167,3 +167,66 @@
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
+/* liên kết tĩnh */
+#create-slug-area {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#edit-slug-box {
+    font-size: 13px !important;
+}
+
+#new-post-slug {
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    min-width: 250px;
+    background-color: #fff;
+    color: #32373c;
+    outline: 0;
+    transition: 50ms border-color ease-in-out;
+}
+
+#slug-button {
+    background: #fafafa;
+    border-color: #999 !important;
+    color: #23282d !important;
+    height: 24px;
+    line-height: 22px;
+    padding: 0 8px 1px;
+    font-size: 11px;
+    box-shadow: 0 1px 0 #ccc;
+    vertical-align: top;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    margin: 0;
+    align-items: flex-start;
+    text-align: center;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    font: 400 13.3333px Arial;
+}
+
+/* sidebar */
+/*.m-aside-left {
+    width: 255px;
+}
+
+.m-brand {
+    width: 255px;
+}*/
+
+/*.top-bar-lol {
+    width: 240px;
+}*/
