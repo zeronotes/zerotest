@@ -43,6 +43,10 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::patch('posts/edit/{id}','PostController@update');
     Route::delete('posts/delete/{id}','PostController@delete')->name('posts.delete');
     Route::delete('posts/permanently-delete/{id}','PostController@destroy')->name('posts.destroy');
+    Route::get('posts/create-slug', function() {
+        exit('wtf');
+    })->name('posts.createSlug');
+    Route::post('posts/create-slug','PostController@createSlug')->name('posts.createSlug');
 
     // Categories
     Route::get('categories','CategoryController@index')->name('categories.index');

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostFormRequest extends FormRequest
+class PageFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,15 +26,13 @@ class PostFormRequest extends FormRequest
         switch ($this->method()) {
             case 'POST':
                 return [
-                    'title' => 'required|min:5',
-                    'slug' => 'required|min:5|unique:posts',
+                    'title' => 'required|min:5|unique:pages',
                     'content' => 'required|min:10'
                 ];
                 break;
             case 'PATCH':
                 return [
-                    'title' => 'required|min:5',
-                    'slug' => 'required|min:5|unique:posts,slug,'.$this->id,
+                    'title' => 'required|min:10|unique:pages,title,'.$this->id,
                     'content' => 'required|min:10'
                 ];
                 break;

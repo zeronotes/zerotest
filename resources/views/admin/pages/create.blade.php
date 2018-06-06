@@ -1,12 +1,11 @@
 @extends('admin.layouts.main')
-@section('title','Edit post')
+@section('title','Create New Page')
 @section('head_custom')
 <link rel="stylesheet" href="/libs/bootstrap-tags-input/bootstrap-tagsinput.css" type="text/css" />
 @endsection
 @section('content')
 <form method="post" id=postform class="row">
-<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-@method('patch')
+@csrf
 	<div class="col-lg-9">
 		<!--begin::Portlet-->
 		<div class="m-portlet">
@@ -17,7 +16,7 @@
 						<i class="la la-gear"></i>
 						</span>
 						<h3 class="m-portlet__head-text">
-							Edit Post
+							Add New Page
 						</h3>
 					</div>
 				</div>
@@ -27,31 +26,11 @@
 				<div class="m-portlet__body">	
 					<div class="m-form__section m-form__section--first">
 						@include('admin.layouts.partials.alert-error')
-						@include('admin.layouts.partials.alert-success')
 						<div class="form-group m-form__group">
-							<input name="title" type="text" class="form-control m-input create-post-title" value="<?php if (old('title') !== null) echo old('title'); else echo $post->title; ?>" placeholder="Enter title here">
+							<input name="title" type="text" class="form-control m-input create-post-title" value="{{ old('title') }}" placeholder="Enter title here">
 						</div>
-						<div class="form-group m-form__group row" id="create-slug-area" style="padding-left: 30px;">
-		                    <div id="edit-slug-box" data-url="{{ url('/') }}" class="hide-if-no-js">
-							
-							<?php 
-							if (old('slug') !== null)
-								$slug = old('slug');
-							else
-								$slug = $post->slug;
-							?>
-							@if ($slug !== null)
-		                    	<strong>Permalink:</strong>
-								<span id="sample-permalink">
-									<a href="#">{{ url('/') }}/<span id="editable-post-name">{{ $slug }}</span>/</a>
-								</span>
-								&lrm;<span id="edit-slug-buttons"><button type="button" class="slug-button button button-small hide-if-no-js" aria-label="Chỉnh sửa permalink">Edit</button></span>
-								<input type="hidden" name="slug" id="slug" value="{{ $slug }}">
-							@endif	
-							</div>
-                    	</div>
 						<div class="form-group m-form__group">
-							<textarea name="content" class="form-control m-input" id="post_content"><?php if (old('content') !== null) echo old('content'); else echo $post->content; ?></textarea>
+							<textarea name="content" class="form-control m-input" id="post_content">{{ old('content') }}</textarea>
 						</div>			
 						
 		            </div>
@@ -80,19 +59,13 @@
 				</div>
 			</div>
 			<div class="m-portlet__body portlet-publish-body" m-hidden-height="120" style="">
-				<div class="" data-max-height="120" style="max-height: 120px; position: relative;">
+				<div class="m-scrollable mCustomScrollbar _mCS_6 mCS-autoHide" data-scrollbar-shown="true" data-scrollable="true" data-max-height="120" style="overflow: visible; max-height: 120px; position: relative;">
 					<div class="form-group m-form__group row">
 						<label class="col-lg-4 col-form-label">Status:</label>
 						<div class="col-lg-8">
 							<select name="status" class="form-control m-input form-control-sm" id="exampleSelect1">
-							<?php
-							if (old('status') !== null)
-								$status = old('status');
-							else
-								$status = $post->status; 
-							?>
-							<option value="publish" <?php if ($status == 'publish') echo 'selected'; ?> >Publish</option>
-							<option value="draft" <?php if ($status == 'draft') echo 'selected'; ?>>Draft</option>
+							<option value="publish" <?php if (old('status') == 'publish') echo 'selected'; ?> >Publish</option>
+							<option value="draft" <?php if (old('status') == 'draft') echo 'selected'; ?>>Draft</option>
 						</select>
 						</div>
 					</div>
@@ -112,7 +85,7 @@
 				<div class="m-portlet__head-caption portlet-publish-caption">
 					<div class="m-portlet__head-title portlet-publish-caption-title">
 						<h3 class="m-portlet__head-text" style="font-size: 14px">
-							Categories
+							Page attributes
 						</h3>
 					</div>			
 				</div>
@@ -124,53 +97,33 @@
 					</ul>
 				</div>
 			</div>
-			<div class="m-portlet__body portlet-publish-body" m-hidden-height="235" style="">
-				<div class="_mCS_6 mCS-autoHide" data-scrollbar-shown="true" data-scrollable="true" data-max-height="235" style="overflow: visible; max-height: 235px; position: relative;">
-					<div class="m-form__group form-group">
-						<div class="m-checkbox-list">
-							<?php
-							if (old('category_check_list'))
-								$selected = old('category_check_list');
-							else
-								$selected = $categories_id;
-
-							multi_level_category($categories,0,0,$selected);
-							?>
-						</div>
-					</div>
+			<div class="m-portlet__body portlet-publish-body" m-hidden-height="250" style="">
+				<div class="_mCS_6 mCS-autoHide" data-scrollbar-shown="true" data-scrollable="true" data-max-height="250" style="overflow: visible; max-height: 250px; position: relative;">
+					<div class="form-group m-form__group">
+                        <label for="parent_category">Parent</label>
+                        <select name="parent_id" class="form-control m-input" id="parent_id">
+                            <option value="0">None</option>
+                            @foreach ($data as $row)
+                            <option value="{{ $row['id'] }}">{{ $row['text'].$row['title'] }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label for="parent_category">Template</label>
+                        <select name="template" class="form-control m-input" id="parent_category">
+                            <option value="0">Default</option>
+                            <option value="1">Landing</option>
+                        </select>
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label for="parent_category">Order</label>
+                        <input type="text" id="order" name="order" class="form-control m-input" placeholder="Order" value="0">
+                    </div>
 				</div>
 			</div>
 		</div>
 		<!-- /categories portlet -->
-		<!-- tags portlet -->
-		<div class="m-portlet m-portlet--head-sm" m-portlet="true" id="m_portlet_tools_l3">
-			<div class="m-portlet__head m-portlet-publish">
-				<div class="m-portlet__head-caption portlet-publish-caption">
-					<div class="m-portlet__head-title portlet-publish-caption-title">
-						<h3 class="m-portlet__head-text" style="font-size: 14px" id="test_tags">
-							Tags
-						</h3>
-					</div>			
-				</div>
-				<div class="m-portlet__head-tools portlet-publish-tools">
-					<ul class="m-portlet__nav portlet-publish-tools-nav">
-						<li class="m-portlet__nav-item">
-							<span m-portlet-tool="toggle" class="m-portlet__nav-link m-portlet__nav-link--icon" aria-describedby="tooltip_dlh4ii0y3i"><i class="la la-angle-down"></i></span>	
-						<div class="m-tooltip m-tooltip--portlet tooltip bs-tooltip-top" role="tooltip" id="tooltip_dlh4ii0y3i" aria-hidden="true" x-placement="top" style="position: absolute; will-change: transform; display: none; top: 0px; left: 0px; transform: translate3d(401px, 448px, 0px);">                            <div class="tooltip-arrow arrow" style="left: 0px;"></div>                            <div class="tooltip-inner">Collapse</div>                        </div></li>
-					</ul>
-				</div>
-			</div>
-			<div class="m-portlet__body portlet-publish-body" m-hidden-height="150" style="">
-			<?php
-			$tags = old('tags');
-			if ($tags == null) {
-				$tags = $tags_name;
-			}
-			?>
-				<input name="tags" id="tags" type="text" placeholder="" value="{{ $tags }}" data-role="tagsinput" />
-			</div>
-		</div>
-		<!-- /tags portlet -->
+		
 		<!-- featured image portlet -->
 		<div class="m-portlet m-portlet--head-sm" m-portlet="true" id="m_portlet_tools_lol1">
 			<div class="m-portlet__head m-portlet-publish">
@@ -190,16 +143,11 @@
 				</div>
 			</div>
 			<div class="m-portlet__body portlet-publish-body" m-hidden-height="120" style="">
-				<?php
-				$featured_image = old('featured_image');
-				if (! isset($featured_image)) {
-					$featured_image = $post->featured_image;
-				}
-				?>
-				@if ($featured_image !== null)
-				<input type="hidden" name="featured_image" id="featured_image" value="{{ $featured_image }}" />
+				
+				@if (old('featured_image') !== null)
+				<input type="hidden" name="featured_image" id="featured_image" value="{{ old('featured_image') }}" />
 				<div id="image" onclick="openKCFinder(this)">
-					<img id="img" src="{{ $featured_image }}" style="width: 100%;margin-left: 0px; margin-top: 6px; visibility: visible;" /><br>Click the image to edit or update
+					<img id="img" src="{{ old('featured_image') }}" style="width: 100%;margin-left: 0px; margin-top: 6px; visibility: visible;" /><br>Click the image to edit or update
 				</div>	
 				@else
 				<input type="hidden" name="featured_image" id="featured_image" />
@@ -219,6 +167,6 @@
     <script src="/assets/demo/default/custom/components/portlets/tools.js" type="text/javascript"></script>
     <script src="/libs/ckeditor/ckeditor.js"></script>
     <script src="/libs/bootstrap-tags-input/bootstrap-tagsinput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="/assets/js/typeahead.bundle.min.js"></script>
     <script src="/assets/js/custom_posts.js"></script>
 @endsection

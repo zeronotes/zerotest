@@ -26,25 +26,23 @@ if (! function_exists('multi_level_category')) {
 }
 
 // return array
-if (! function_exists('multiLevelCategoryArray')) {
-	function multiLevelCategoryArray(Array $data, $parent = 0, $text = '') {
-	    $tree = array();
+if (! function_exists('multiLevelArray')) {
+	function multiLevelArray(Array $data, $parent = 0, $text = '') {
+	    $result = array();
 	    foreach ($data as $key => $item) {
 	        if ($item['parent_id'] == $parent) {
 	        	unset($data[$key]);
 	        	$item['text'] = $text;
-	        	$tree[] = $item;
-	            $children = multiLevelCategoryArray($data, $item['id'], $text.'—');
-	            // set a trivial key
+	        	$result[] = $item;
+	            $children = multiLevelArray($data, $item['id'], $text.'—');
 	            if (!empty($children)) {
 	            	foreach ($children as $value) {
-	            		$tree[] = $value;
+	            		$result[] = $value;
 	            	}
-	            }
-	            
+	            }  
 	        }
 	    }
-	    return $tree;
+	    return $result;
 	}
 }
 

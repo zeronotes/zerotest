@@ -2,10 +2,10 @@
 	<div class="m-container m-container--fluid m-container--full-height">
 		<div class="m-stack m-stack--ver m-stack--desktop">		
 			<!-- BEGIN: Brand -->
-<div class="m-stack__item m-brand  m-brand--skin-dark ">
+<div class="m-stack__item m-brand  m-brand--skin-dark top-bar-lol">
 	<div class="m-stack m-stack--ver m-stack--general">
 		<div class="m-stack__item m-stack__item--middle m-brand__logo">
-			<a href="?page=index&demo=default" class="m-brand__logo-wrapper">
+			<a href="{{ route('admin.dashboard') }}" class="m-brand__logo-wrapper">
 			<!-- <img alt="" src="/assets/demo/default/media/img/logo/logo_default_dark.png"/> -->
 			<h1 style="font-size: 22px;letter-spacing: 2px;color: #eee;font-weight: 400">Admincp</h1>
 			</a>  

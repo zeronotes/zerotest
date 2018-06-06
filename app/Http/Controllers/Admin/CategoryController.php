@@ -25,7 +25,7 @@ class CategoryController extends Controller
         else {
             $data = Category::select('id','name','slug','description','parent_id')
                     ->where('status','publish')->get()->toArray();
-            $categories = multiLevelCategoryArray($data,0);
+            $categories = multiLevelArray($data,0);
             Cache::put('multiLevelCategory', $categories, 1500);
         }
         
@@ -93,7 +93,7 @@ class CategoryController extends Controller
         else {
             $categories = Category::select('id','name','slug','description','parent_id')
                     ->where('status','publish')->get()->toArray();
-            $multiLevelCategory = multiLevelCategoryArray($categories,0);
+            $multiLevelCategory = multiLevelArray($categories,0);
             Cache::put('multiLevelCategory', $multiLevelCategory, 1500);
         }
         // dd($multiLevelCategory);

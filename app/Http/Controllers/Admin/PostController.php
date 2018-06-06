@@ -38,6 +38,50 @@ class PostController extends Controller
         return view('admin.posts.create',['categories' => $categories]);
     }
 
+    public function createSlug(Request $rq)
+    {
+        if (! empty($rq->fvl) && !empty($rq->slug)) {
+            $slug = str_slug($rq->slug);
+            echo '<strong>Permalink:</strong>
+            <span id="sample-permalink">
+                <a href="#" target="wp-preview-196">'.url('/').'/<span id="editable-post-name">'.$slug.'</span>/</a>
+            </span>
+            &lrm;<span id="edit-slug-buttons"><button type="button" class="slug-button button button-small hide-if-no-js" aria-label="Chỉnh sửa permalink">Edit</button></span>
+            <input type="hidden" name="slug" id="slug" value="'.$slug.'">';
+            exit();
+        }
+
+        if (! empty($rq->new_slug)) {
+            // nếu tồn tại biến new_slug
+            $new_slug = str_slug($rq->new_slug);
+        }
+        else {
+            // nếu không tồn tại biến new_slug thì sẽ tạo mới từ title
+            if (! empty($rq->title)) {
+                $new_slug = str_slug($rq->title);
+            }
+            else {
+                // nếu cả new_slug và title cùng không tồn tại thì exit
+                exit();
+            }
+        }
+
+        // kiểm tra new_slug đã tồn tại chưa
+        $data = Post::select('id','title','slug')->where('slug', $new_slug)->first();
+        if (! empty($data)) {
+            $new_slug = $new_slug.'-'.rand(10000,99999);
+        }
+        
+        // trả về kết quả html
+        echo '<strong>Permalink:</strong>
+            <span id="sample-permalink">
+                <a href="#" target="wp-preview-196">'.url('/').'/<span id="editable-post-name">'.$new_slug.'</span>/</a>
+            </span>
+            &lrm;<span id="edit-slug-buttons"><button type="button" class="slug-button button button-small hide-if-no-js" aria-label="Chỉnh sửa permalink">Edit</button></span>
+            <input type="hidden" name="slug" id="slug" value="'.$new_slug.'">';
+        exit();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -49,7 +93,7 @@ class PostController extends Controller
         // create new post
         $data = new Post;
         $data->title = $rq->title;
-        $data->slug = str_slug($rq->title);
+        $data->slug = str_slug($rq->slug);
         $data->content = $rq->content;
         $data->author_id = rand(1,5);
         $data->featured_image = $rq->featured_image;
@@ -135,7 +179,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->title = $rq->title;
-        $post->slug = str_slug($rq->title);
+        $post->slug = str_slug($rq->slug);
         $post->content = $rq->content;
         $post->featured_image = $rq->featured_image;
         $post->status = $rq->status;

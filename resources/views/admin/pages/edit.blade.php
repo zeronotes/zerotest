@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <form method="post" id=postform class="row">
-<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+@csrf
 @method('patch')
 	<div class="col-lg-9">
 		<!--begin::Portlet-->
@@ -31,25 +31,6 @@
 						<div class="form-group m-form__group">
 							<input name="title" type="text" class="form-control m-input create-post-title" value="<?php if (old('title') !== null) echo old('title'); else echo $post->title; ?>" placeholder="Enter title here">
 						</div>
-						<div class="form-group m-form__group row" id="create-slug-area" style="padding-left: 30px;">
-		                    <div id="edit-slug-box" data-url="{{ url('/') }}" class="hide-if-no-js">
-							
-							<?php 
-							if (old('slug') !== null)
-								$slug = old('slug');
-							else
-								$slug = $post->slug;
-							?>
-							@if ($slug !== null)
-		                    	<strong>Permalink:</strong>
-								<span id="sample-permalink">
-									<a href="#">{{ url('/') }}/<span id="editable-post-name">{{ $slug }}</span>/</a>
-								</span>
-								&lrm;<span id="edit-slug-buttons"><button type="button" class="slug-button button button-small hide-if-no-js" aria-label="Chỉnh sửa permalink">Edit</button></span>
-								<input type="hidden" name="slug" id="slug" value="{{ $slug }}">
-							@endif	
-							</div>
-                    	</div>
 						<div class="form-group m-form__group">
 							<textarea name="content" class="form-control m-input" id="post_content"><?php if (old('content') !== null) echo old('content'); else echo $post->content; ?></textarea>
 						</div>			
@@ -80,7 +61,7 @@
 				</div>
 			</div>
 			<div class="m-portlet__body portlet-publish-body" m-hidden-height="120" style="">
-				<div class="" data-max-height="120" style="max-height: 120px; position: relative;">
+				<div class="m-scrollable mCustomScrollbar _mCS_6 mCS-autoHide" data-scrollbar-shown="true" data-scrollable="true" data-max-height="120" style="overflow: visible; max-height: 120px; position: relative;">
 					<div class="form-group m-form__group row">
 						<label class="col-lg-4 col-form-label">Status:</label>
 						<div class="col-lg-8">

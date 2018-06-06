@@ -13,13 +13,14 @@ class DatabaseSeeder extends Seeder
     {
         factory(App\Comment::class, 200)->create();
         //factory(App\Category::class, 5)->create();
-
+        factory('App\Page',10)->create();
         $this->call(TagSeeder::class);
         $this->call([
             CategorySeeder::class,
             ProductCategorySeeder::class,
             ProductTagSeeder::class,
             RelationshipSeeder::class,
+            ChildPageSeeder::class,
         ]);
         
         factory(App\User::class, 25)->create();
