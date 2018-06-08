@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserFormRequest;
+use App\Http\Requests\LoginFormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -85,7 +87,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if (! empty($rq->password)) {
-            $user->password = $rq->password;
+            $user->password = bcrypt($rq->password);
         }
         $user->name = $rq->name;
         $user->save();
@@ -108,5 +110,37 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->action('Admin\UserController@index')->with('msg_success','Deleted successfully.'); //redirect to controller action
+    }
+
+    public function getLogin()
+    {
+        if (Auth::check()) {
+            return redirect()->route('admin.dashboard');
+        }
+        else {
+            return view('admin.users.login');
+        }
+    }
+
+    public function postLogin(LoginFormRequest $rq)
+    {
+        if (Auth::attempt(['username' => $rq->username, 'password' => $rq->password])) {
+            // dang nhap thanh cong
+            return redirect()->route('admin.dashboard');
+        }
+        else {
+            // dang nhap that bai
+            return redirect()->back()->withErrors(['Invalid username or password.']);
+        }
+    }
+
+    public function getLogout()
+    {
+        exit('wtf');
+    }
+
+    public function postLogout() {
+        Auth::logout();
+        return redirect()->route('admin.login');
     }
 }

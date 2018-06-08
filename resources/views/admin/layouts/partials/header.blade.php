@@ -301,6 +301,7 @@
 		</div>
 	</div>
 </li>
+			@if (Auth::check())
 			<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
 	<a href="#" class="m-nav__link m-dropdown__toggle">
 	<span class="m-topbar__userpic">
@@ -317,8 +318,8 @@
 						<img src="/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
 					</div>
 					<div class="m-card-user__details">
-						<span class="m-card-user__name m--font-weight-500">Mark Andre</span>
-						<a href="" class="m-card-user__email m--font-weight-300 m-link">mark.andre@gmail.com</a>
+						<span class="m-card-user__name m--font-weight-500">{{ Auth::user()->name }}</span>
+						<a href="" class="m-card-user__email m--font-weight-300 m-link">{{ Auth::user()->email }}</a>
 					</div>
 				</div>
 			</div>
@@ -353,22 +354,13 @@
 						</li>
 						<li class="m-nav__separator m-nav__separator--fit">
 						</li>
-						<li class="m-nav__item">
-							<a href="?page=header/profile&demo=default" class="m-nav__link">
-								<i class="m-nav__link-icon flaticon-info"></i>
-								<span class="m-nav__link-text">FAQ</span>
-							</a>
-						</li>
-						<li class="m-nav__item">
-							<a href="?page=header/profile&demo=default" class="m-nav__link">
-								<i class="m-nav__link-icon flaticon-lifebuoy"></i>
-								<span class="m-nav__link-text">Support</span>
-							</a>
-						</li>
 						<li class="m-nav__separator m-nav__separator--fit">
 						</li>
 						<li class="m-nav__item">
-							<a href="?page=snippets/pages/user/login-1&demo=default" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
+							<a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
+                             <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 						</li>
 					</ul>
 				</div>
@@ -376,6 +368,7 @@
 		</div>
 	</div>
 </li>
+@endif
 	</ul>
 	</div>
 </div>

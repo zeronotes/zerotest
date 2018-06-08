@@ -21,8 +21,10 @@ Route::get('danh-muc-san-pham/{slug}', 'ProductController@category')->name('prod
 
 Route::get('san-pham/{slug}', 'ProductController@product')->name('product');
 
+Route::get('admin/login','Admin\UserController@getLogin')->name('admin.login');
+Route::post('admin/login','Admin\UserController@postLogin');
 
-Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
+Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('adminLogin')->group(function () {
 	/* Users */
     Route::get('users/create','UserController@create')->name('users.create');
     Route::post('users/create','UserController@store');
@@ -100,5 +102,6 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::delete('comments/permanently-delete/{id}','CommentController@destroy')->name('comments.destroy');
 
     Route::get('/','PageController@dashboard')->name('dashboard');
-    Route::get('logout','PageController@index')->name('logout');
+    Route::get('logout','UserController@getLogout')->name('logout');
+    Route::post('logout','UserController@postLogout');
 });
