@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 use App\Http\Requests\CategoryFormRequest;
 use App\Relationship;
 use App\Category;
@@ -19,14 +20,29 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        if (Cache::has('multiLevelCategory')) {
-            $categories = Cache::get('multiLevelCategory');
+        // cache use redis
+        // if (Redis::exists('redisMultiLevelCategory')) {
+        //     $categories = Redis::get('redisMultiLevelCategory');
+        //     $categories = json_decode($categories, true);
+        // }
+        // else {
+        //     $data = Category::select('id','name','slug','description','parent_id')
+        //             ->where('status','publish')->get()->toArray();
+        //     $categories = multiLevelArray($data,0);
+        //     Redis::set('redisMultiLevelCategory', json_encode($categories));
+        // }
+        $redis = Redis::connection();
+        if ($redis->exists('multiLevelCategory')) {
+            $categories = $redis->get('multiLevelCategory');
+            $categories = json_decode($categories, true);
+            // $categories = unserialize($categories);
         }
         else {
             $data = Category::select('id','name','slug','description','parent_id')
                     ->where('status','publish')->get()->toArray();
-            $categories = multiLevelArray($data,0);
-            Cache::put('multiLevelCategory', $categories, 1500);
+            $categories = multiLevelArray($data, 0);
+            $redis->set('multiLevelCategory', json_encode($categories));
+            // $redis->set('multiLevelCategory3', serialize($categories));
         }
         
         return view('admin.categories.index', ['data' => $categories]);
@@ -72,7 +88,8 @@ class CategoryController extends Controller
         //
     }
 
-    public function search(Request $rq) {
+    public function search(Request $rq) 
+    {
         $data = Category::where('name','like','%'.$rq->name.'%')->get()->toArray();
         return view('admin.categories.search')->with('data', $data);
     }

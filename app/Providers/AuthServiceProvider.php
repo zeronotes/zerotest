@@ -13,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Model' => 'App\Policies\ModelPolicy',
+        \App\Post::class => \App\Policies\PostPolicy::class
     ];
 
     /**
@@ -25,6 +26,19 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // admin, editor, author, member
+        // chỉ cho phép admin có quyền sửa user
+        Gate::define('edit-user', function($user) {
+            if ($user->id == 1)
+                return true;
+            else
+                return false;
+        });
+
+        Gate::before(function($user) {
+            if ($user->group_id === 1) {
+                return true;
+            }
+        });
     }
 }

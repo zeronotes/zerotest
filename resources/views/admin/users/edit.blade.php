@@ -20,6 +20,12 @@
 					<div style="padding-left: 15px; padding-right: 15px;">
 					@include('admin.layouts.partials.alert-error')
 					@include('admin.layouts.partials.alert-success')
+					@cannot('edit-user')
+					<span>Không có quyền</span>
+					@endcannot
+					@can('edit-user')
+					<span>Có quyền</span>
+					@endcan
 					</div>
 					<div class="form-group m-form__group row">
 						<label for="example-text-input" class="col-2 col-form-label">Username</label>

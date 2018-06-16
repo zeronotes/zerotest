@@ -28,10 +28,10 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('adminLog
 	/* Users */
     Route::get('users/create','UserController@create')->name('users.create');
     Route::post('users/create','UserController@store');
-    Route::get('users/edit/{id}','UserController@edit')->name('users.edit');
+    Route::get('users/edit/{id}','UserController@edit')->name('users.edit')->middleware(['can:edit-user']);
     Route::patch('users/edit/{id}','UserController@update');
     Route::get('users','UserController@index')->name('users.index');
-    Route::delete('users/delete/{id}','UserController@destroy')->name('users.delete');
+    Route::delete('users/delete/{id}','UserController@destroy')->name('users.delete')->middleware(['can:edit-user']);
 
     // Groups
     Route::get('user-groups', function(){})->name('usergroups.index');
@@ -57,7 +57,9 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('adminLog
     Route::get('categories/edit/{id}','CategoryController@edit')->name('categories.edit');
     Route::patch('categories/edit/{id}','CategoryController@update');
     Route::delete('categories/delete/{id}','CategoryController@destroy')->name('categories.delete');
-    Route::get('categories/search','CategoryController@search')->name('categories.search');
+    Route::get('categories/search', function () {
+        exit('wtf');
+    })->name('categories.search');
     Route::post('categories/search','CategoryController@search');
 
     // Tags
@@ -67,6 +69,10 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('adminLog
     Route::get('tags/edit/{id}','TagController@edit')->name('tags.edit');
     Route::patch('tags/edit/{id}','TagController@update');
     Route::delete('tags/delete/{id}','TagController@destroy')->name('tags.delete');
+    Route::get('tags/search', function () {
+        exit('wtf');
+    })->name('admin.tags.search');
+    Route::post('tags/search','TagController@search');
 
     /* Pages */
     Route::get('pages','PageController@index')->name('pages.index');
@@ -74,7 +80,7 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('adminLog
     Route::post('pages/create','PageController@store');
     Route::get('pages/edit/{id}','PageController@edit')->name('pages.edit');
     Route::patch('pages/edit/{id}','PageController@update');
-    Route::delete('pages/delete','PageController@delete')->name('pages.delete');
+    Route::delete('pages/delete/{id}','PageController@delete')->name('pages.delete');
     Route::delete('pages/permanently-delete/{id}','PageController@destroy')->name('pages.destroy');
 
     /* Products */

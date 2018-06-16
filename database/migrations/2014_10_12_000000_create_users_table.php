@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('name')->nullable();
+            $table->tinyInteger('group_id')->unsigned()->default(3); //1: admin, 2: editor, 3: author, 4: member
             $table->rememberToken();
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::where('status','publish')->orWhere('status','draft')->orderBy('created_at','DESC')->paginate(10);
+        $data = Post::where('post_type','post')->where('status','publish')->orWhere('status','draft')->orderBy('created_at','DESC')->paginate(10);
         // foreach ($data as $value) {
         //     dd($value->categories);
         // }
@@ -35,7 +35,7 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::select('id','name','parent_id')->where('status','publish')->get()->toArray();
-        return view('admin.posts.create',['categories' => $categories]);
+        return view('admin.posts.create', ['categories' => $categories, 'post_type' => 'post']);
     }
 
     public function createSlug(Request $rq)
@@ -138,6 +138,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        $post = Post::findOrFail($id);
+        $this->authorize($post, 'view');
         foreach (test_foreach() as $value) {
             echo $value.'<br>';
         }
@@ -165,7 +167,7 @@ class PostController extends Controller
 
         $categories = Category::select('id','name','parent_id')->where('status','publish')->get()->toArray();
 
-        return view('admin.posts.edit', ['post' => $post, 'categories' => $categories, 'categories_id' => $categories_id,'tags_name' => $tags_name]);
+        return view('admin.posts.edit', ['post' => $post, 'categories' => $categories, 'categories_id' => $categories_id,'tags_name' => $tags_name,'post_type' => 'post']);
     }
 
     /**
