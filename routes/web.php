@@ -19,7 +19,7 @@ Route::get('contact', 'PageController@contact');
 
 Route::get('danh-muc-san-pham/{slug}', 'ProductController@category')->name('product_category');
 
-Route::get('san-pham/{slug}', 'ProductController@product')->name('product');
+Route::get('san-pham/{slug}//', 'ProductController@product')->name('product');
 
 Route::get('admin/login','Admin\UserController@getLogin')->name('admin.login');
 Route::post('admin/login','Admin\UserController@postLogin');
@@ -106,6 +106,9 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('adminLog
     Route::patch('comments/edit/{id}','CommentController@update');
     Route::delete('comments/delete/{id}','CommentController@delete')->name('comments.delete');
     Route::delete('comments/permanently-delete/{id}','CommentController@destroy')->name('comments.destroy');
+    Route::get('comments/delete/{id}', function () {
+        exit('wtf');
+    });
 
     Route::get('/','PageController@dashboard')->name('dashboard');
     Route::get('logout','UserController@getLogout')->name('logout');

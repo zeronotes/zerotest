@@ -114,6 +114,9 @@ class UserController extends Controller
 
     public function getLogin()
     {
+        // if (Auth::viaRemember()) {
+        //     exit('da login');
+        // }
         if (Auth::check()) {
             return redirect()->route('admin.dashboard');
         }
@@ -124,7 +127,10 @@ class UserController extends Controller
 
     public function postLogin(LoginFormRequest $rq)
     {
-        if (Auth::attempt(['username' => $rq->username, 'password' => $rq->password])) {
+        // remember me
+        $remember = ($rq->rememberme == 'forever') ? true : false;
+
+        if (Auth::attempt(['username' => $rq->username, 'password' => $rq->password], $remember)) {
             // dang nhap thanh cong
             return redirect()->route('admin.dashboard');
         }

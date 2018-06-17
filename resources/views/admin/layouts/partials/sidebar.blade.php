@@ -38,7 +38,7 @@
          </div>
       </li>
       <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
-         <a  href="{{ route('admin.comments.index') }}" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-multimedia-1"></i><span class="m-menu__link-text">Comments</span><i class="m-menu__ver-arrow"></i></a>
+         <a  href="{{ route('admin.comments.index') }}" class="m-menu__link"><i class="m-menu__link-icon flaticon-multimedia-1"></i><span class="m-menu__link-text">Comments</span><i class="m-menu__ver-arrow"></i></a>
          <div class="m-menu__submenu ">
             <span class="m-menu__arrow"></span>
          </div>

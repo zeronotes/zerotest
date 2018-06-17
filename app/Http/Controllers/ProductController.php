@@ -12,13 +12,23 @@ class ProductController extends Controller
     public function category($slug)
     {
     	$category = ProductCategory::where('slug','=',$slug)->first();
-    	$products = Relationship::where('parent_id',$category->id)->where('parent_type','product_category')->paginate(8);
-    	return view('products.category', ['products' => $products]);
+        if (!empty($category)) {
+            $products = Relationship::where('parent_id',$category->id)->where('parent_type','product_category')->paginate(8);
+            return view('products.category', ['products' => $products]);
+        }
+        else {
+            abort(404);
+        }
     }
 
     public function product($slug)
     {
     	$product = Product::where('slug',$slug)->first();
-    	return view('products.product', compact('product'));
+        if (! empty($product)) {
+            return view('products.product', compact('product'));
+        }
+    	else {
+            abort(404);
+        }
     }
 }

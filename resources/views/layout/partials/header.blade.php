@@ -103,6 +103,8 @@
 				<div class="clearfix"></div>
 			</div> <!-- .container -->
 		</div> <!-- .header-body -->
+
+		<?php $product_categories = getProductCategories(); ?>
 		<div class="header-bottom" style="background-color: #0277b8;">
 			<div class="container">
 				<a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>

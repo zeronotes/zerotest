@@ -78,3 +78,12 @@ if (! function_exists('test_foreach')) {
 		return [1,2,5,6,8];
 	}
 }
+
+if (! function_exists('getProductCategories')) {
+	function getProductCategories()
+	{
+		$data = App\ProductCategory::limit(10)->get();
+		// dd($data);
+		return $data;
+	}
+}
