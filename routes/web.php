@@ -114,3 +114,15 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('adminLog
     Route::get('logout','UserController@getLogout')->name('logout');
     Route::post('logout','UserController@postLogout');
 });
+
+Route::get('test', function() {
+    return view('admin.index');
+});
+
+
+// Display all SQL executed in Eloquent, khong hieu qua
+// \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+//     var_dump($query->sql);
+//     var_dump($query->bindings);
+//     var_dump($query->time);
+// });

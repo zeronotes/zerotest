@@ -13,4 +13,9 @@ class Comment extends Model
     	// hasOne va belongsTo cac tham so khoa ngoai nguoc nhau
     	// return $this->belongsTo('App\User','author_id','id');
     }
+
+    // public function inResponseTo()
+    // {
+    // 	return $this->hasOne('App\')
+    // }
 }

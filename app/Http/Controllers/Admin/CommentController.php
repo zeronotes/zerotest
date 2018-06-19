@@ -16,10 +16,12 @@ class CommentController extends Controller
     public function index(Request $rq)
     {
         if ($rq->keyword !== null) {
-            $data = Comment::where('content','like','%'.$rq->keyword.'%')->where('status','=','publish')->paginate(10);
+            $data = Comment::where('content','like','%'.$rq->keyword.'%')->where('status','=','publish')->with('user')->paginate(10);
         }
         else {
-            $data = Comment::where('status','publish')->paginate(10);
+            $data = Comment::where('status','publish')->with('user')->paginate(10);
+            // dd($data);
+            // $data = Comment::where('status','publish')->with('user')->paginate(10);
         }
         
         return view('admin.comments.index')->with(['data' => $data]);
@@ -65,7 +67,7 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

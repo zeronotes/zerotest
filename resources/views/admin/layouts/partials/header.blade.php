@@ -2,12 +2,11 @@
 	<div class="m-container m-container--fluid m-container--full-height">
 		<div class="m-stack m-stack--ver m-stack--desktop">		
 			<!-- BEGIN: Brand -->
-<div class="m-stack__item m-brand  m-brand--skin-dark top-bar-lol">
+<div class="m-stack__item m-brand  m-brand--skin-dark ">
 	<div class="m-stack m-stack--ver m-stack--general">
 		<div class="m-stack__item m-stack__item--middle m-brand__logo">
-			<a href="{{ route('admin.dashboard') }}" class="m-brand__logo-wrapper">
-			<!-- <img alt="" src="/assets/demo/default/media/img/logo/logo_default_dark.png"/> -->
-			<h1 style="font-size: 22px;letter-spacing: 2px;color: #eee;font-weight: 400">Admincp</h1>
+			<a href="?page=index&demo=default" class="m-brand__logo-wrapper">
+			<img alt="" src="/assets/demo/default/media/img/logo/logo_default_dark.png"/>
 			</a>  
 		</div>
 		<div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -49,50 +48,7 @@
 
 <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark "  >	
 	<ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-   <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
-      <a  href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-add"></i><span class="m-menu__link-text">Actions</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-      <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
-         <span class="m-menu__arrow m-menu__arrow--adjust"></span>
-         <ul class="m-menu__subnav">
-            <li class="m-menu__item "  aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-file"></i><span class="m-menu__link-text">Create New Post</span></a></li>
-            <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-diagram"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">Generate Reports</span>      <span class="m-menu__link-badge"><span class="m-badge m-badge--success">2</span></span>  </span></span></a></li>
-            <li class="m-menu__item  m-menu__item--submenu"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true">
-               <a  href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-business"></i><span class="m-menu__link-text">Manage Orders</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-               <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right">
-                  <span class="m-menu__arrow "></span>
-                  <ul class="m-menu__subnav">
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Latest Orders</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Pending Orders</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Processed Orders</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Delivery Reports</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Payments</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Customers</span></a></li>
-                  </ul>
-               </div>
-            </li>
-            <li class="m-menu__item  m-menu__item--submenu"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true">
-               <a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-chat-1"></i><span class="m-menu__link-text">Customer Feedbacks</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-               <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right">
-                  <span class="m-menu__arrow "></span>
-                  <ul class="m-menu__subnav">
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Customer Feedbacks</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Supplier Feedbacks</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Reviewed Feedbacks</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Resolved Feedbacks</span></a></li>
-                     <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Feedback Reports</span></a></li>
-                  </ul>
-               </div>
-            </li>
-            <li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-users"></i><span class="m-menu__link-text">Register Member</span></a></li>
-         </ul>
-      </div>
-   </li>
-   <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
-      <a  href="/" class="m-menu__link" target="_blank">
-      <i class="m-menu__link-icon flaticon-paper-plane"></i>
-      <span class="m-menu__link-text">Visit site</span><i class="m-menu__hor-arrow"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
-    </li>  
-</ul>
+		<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><a  href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-add"></i><span class="m-menu__link-text">Actions</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span><ul class="m-menu__subnav"><li class="m-menu__item "  aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-file"></i><span class="m-menu__link-text">Create New Post</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-diagram"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">Generate Reports</span>      <span class="m-menu__link-badge"><span class="m-badge m-badge--success">2</span></span>  </span></span></a></li><li class="m-menu__item  m-menu__item--submenu"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a  href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-business"></i><span class="m-menu__link-text">Manage Orders</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span class="m-menu__arrow "></span><ul class="m-menu__subnav"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Latest Orders</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Pending Orders</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Processed Orders</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Delivery Reports</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Payments</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Customers</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a  href="#" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-chat-1"></i><span class="m-menu__link-text">Customer Feedbacks</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span class="m-menu__arrow "></span><ul class="m-menu__subnav"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Customer Feedbacks</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Supplier Feedbacks</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Reviewed Feedbacks</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Resolved Feedbacks</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Feedback Reports</span></a></li></ul></div></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-users"></i><span class="m-menu__link-text">Register Member</span></a></li></ul></div></li><li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><a  href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Reports</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu  m-menu__submenu--fixed m-menu__submenu--left" style="width:1000px"><span class="m-menu__arrow m-menu__arrow--adjust"></span><div class="m-menu__subnav"><ul class="m-menu__content"><li class="m-menu__item"><h3 class="m-menu__heading m-menu__toggle"><span class="m-menu__link-text">Finance Reports</span><i class="m-menu__ver-arrow la la-angle-right"></i></h3><ul class="m-menu__inner"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-map"></i><span class="m-menu__link-text">Annual Reports</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-user"></i><span class="m-menu__link-text">HR Reports</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-clipboard"></i><span class="m-menu__link-text">IPO Reports</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic-1"></i><span class="m-menu__link-text">Finance Margins</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic-2"></i><span class="m-menu__link-text">Revenue Reports</span></a></li></ul></li><li class="m-menu__item"><h3 class="m-menu__heading m-menu__toggle"><span class="m-menu__link-text">Project Reports</span><i class="m-menu__ver-arrow la la-angle-right"></i></h3><ul class="m-menu__inner"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Coca Cola CRM</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Delta Airlines Booking Site</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Malibu Accounting</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Vineseed Website Rewamp</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Zircon Mobile App</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Mercury CMS</span></a></li></ul></li><li class="m-menu__item"><h3 class="m-menu__heading m-menu__toggle"><span class="m-menu__link-text">HR Reports</span><i class="m-menu__ver-arrow la la-angle-right"></i></h3><ul class="m-menu__inner"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Staff Directory</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Client Directory</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Salary Reports</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Staff Payslips</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Corporate Expenses</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Project Expenses</span></a></li></ul></li><li class="m-menu__item"><h3 class="m-menu__heading m-menu__toggle"><span class="m-menu__link-text">Reporting Apps</span><i class="m-menu__ver-arrow la la-angle-right"></i></h3><ul class="m-menu__inner"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Report Adjusments</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Sources & Mediums</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Reporting Settings</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Conversions</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Report Flows</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><span class="m-menu__link-text">Audit & Logs</span></a></li></ul></li></ul></div></div></li><li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><a  href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-paper-plane"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">Apps</span>      <span class="m-menu__link-badge"><span class="m-badge m-badge--brand m-badge--wide">new</span></span>  </span></span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span><ul class="m-menu__subnav"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-business"></i><span class="m-menu__link-text">eCommerce</span></a></li><li class="m-menu__item  m-menu__item--submenu"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=crud/datatable_v1&demo=default" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-computer"></i><span class="m-menu__link-text">Audience</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right"><span class="m-menu__arrow "></span><ul class="m-menu__subnav"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-users"></i><span class="m-menu__link-text">Active Users</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-interface-1"></i><span class="m-menu__link-text">User Explorer</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-lifebuoy"></i><span class="m-menu__link-text">Users Flows</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic-1"></i><span class="m-menu__link-text">Market Segments</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic"></i><span class="m-menu__link-text">User Reports</span></a></li></ul></div></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-map"></i><span class="m-menu__link-text">Marketing</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-graphic-2"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">Campaigns</span>      <span class="m-menu__link-badge"><span class="m-badge m-badge--success">3</span></span>  </span></span></a></li><li class="m-menu__item  m-menu__item--submenu"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1" aria-haspopup="true"><a  href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-infinity"></i><span class="m-menu__link-text">Cloud Manager</span><i class="m-menu__hor-arrow la la-angle-right"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a><div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow "></span><ul class="m-menu__subnav"><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-add"></i><span class="m-menu__link-title">  <span class="m-menu__link-wrap">      <span class="m-menu__link-text">File Upload</span>      <span class="m-menu__link-badge"><span class="m-badge m-badge--danger">3</span></span>  </span></span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-signs-1"></i><span class="m-menu__link-text">File Attributes</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-folder"></i><span class="m-menu__link-text">Folders</span></a></li><li class="m-menu__item "  m-menu-link-redirect="1" aria-haspopup="true"><a  href="?page=header/actions&demo=default" class="m-menu__link "><i class="m-menu__link-icon flaticon-cogwheel-2"></i><span class="m-menu__link-text">System Settings</span></a></li></ul></div></li></ul></div></li>	</ul>
 </div>
 <!-- END: Horizontal Menu -->								<!-- BEGIN: Topbar -->
 <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
@@ -123,7 +79,7 @@
 				</form>  
 			</div>
 			<div class="m-dropdown__body">
-				<div class="m-dropdown__scrollable m-scrollable" data-scrollable="true" data-max-height="300" data-mobile-max-height="200">
+				<div class="m-dropdown__scrollable m-scrollable" data-scrollable="true" data-height="300" data-mobile-height="200">
 					<div class="m-dropdown__content">
 					</div>
 				</div>
@@ -160,7 +116,7 @@
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="topbar_notifications_notifications" role="tabpanel">
-							<div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+							<div class="m-scrollable" data-scrollable="true" data-height="250" data-mobile-height="200">
 								<div class="m-list-timeline m-list-timeline--skin-light">
 									<div class="m-list-timeline__items">
 										<div class="m-list-timeline__item">
@@ -208,7 +164,7 @@
 							</div>
 						</div>
 						<div class="tab-pane" id="topbar_notifications_events" role="tabpanel">
-							<div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+							<div class="m-scrollable" data-scrollable="true" data-height="250" data-mobile-height="200">
 								<div class="m-list-timeline m-list-timeline--skin-light">
 									<div class="m-list-timeline__items">
 										<div class="m-list-timeline__item">
@@ -272,7 +228,7 @@
 			</div>
 			<div class="m-dropdown__body m-dropdown__body--paddingless">
 				<div class="m-dropdown__content">
-					<div class="data" data="false" data-max-height="380" data-mobile-max-height="200">
+					<div class="data" data="false" data-height="380" data-mobile-height="200">
 						<div class="m-nav-grid m-nav-grid--skin-light">
 							<div class="m-nav-grid__row">
 								<a href="#" class="m-nav-grid__item">
@@ -301,11 +257,13 @@
 		</div>
 	</div>
 </li>
-			@if (Auth::check())
 			<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
 	<a href="#" class="m-nav__link m-dropdown__toggle">
-	<span class="m-topbar__userpic">
-	<img src="/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+	<span class="m-topbar__userpic">	
+		<img src="/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>	
+		<!--
+		<span class="m-type m--bg-brand"><span class="m--font-light">S<span><span>
+		-->
 	</span>
 	<span class="m-topbar__username m--hide">Nick</span>					
 	</a>
@@ -316,10 +274,13 @@
 				<div class="m-card-user m-card-user--skin-dark">
 					<div class="m-card-user__pic">
 						<img src="/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
+						<!--
+						<span class="m-type m-type--lg m--bg-danger"><span class="m--font-light">S<span><span>
+						-->
 					</div>
 					<div class="m-card-user__details">
-						<span class="m-card-user__name m--font-weight-500">{{ Auth::user()->name }}</span>
-						<a href="" class="m-card-user__email m--font-weight-300 m-link">{{ Auth::user()->email }}</a>
+						<span class="m-card-user__name m--font-weight-500">Mark Andre</span>
+						<a href="" class="m-card-user__email m--font-weight-300 m-link">mark.andre@gmail.com</a>
 					</div>
 				</div>
 			</div>
@@ -354,13 +315,22 @@
 						</li>
 						<li class="m-nav__separator m-nav__separator--fit">
 						</li>
+						<li class="m-nav__item">
+							<a href="?page=header/profile&demo=default" class="m-nav__link">
+								<i class="m-nav__link-icon flaticon-info"></i>
+								<span class="m-nav__link-text">FAQ</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="?page=header/profile&demo=default" class="m-nav__link">
+								<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+								<span class="m-nav__link-text">Support</span>
+							</a>
+						</li>
 						<li class="m-nav__separator m-nav__separator--fit">
 						</li>
 						<li class="m-nav__item">
-							<a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
-                             <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+							<a href="?page=snippets/pages/user/login-1&demo=default" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">Logout</a>
 						</li>
 					</ul>
 				</div>
@@ -368,8 +338,13 @@
 		</div>
 	</div>
 </li>
-@endif
-	</ul>
+					
+				<li id="m_quick_sidebar_toggle" class="m-nav__item">
+					<a href="#" class="m-nav__link m-dropdown__toggle">
+						<span class="m-nav__link-icon"><i class="flaticon-grid-menu"></i></span>
+					</a>
+				</li>			
+					</ul>
 	</div>
 </div>
 <!-- END: Topbar -->			</div>

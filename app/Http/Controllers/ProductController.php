@@ -13,7 +13,7 @@ class ProductController extends Controller
     {
     	$category = ProductCategory::where('slug','=',$slug)->first();
         if (!empty($category)) {
-            $products = Relationship::where('parent_id',$category->id)->where('parent_type','product_category')->paginate(8);
+            $products = Relationship::where('parent_id',$category->id)->where('parent_type','product_category')->with('product')->paginate(8);
             return view('products.category', ['products' => $products]);
         }
         else {
@@ -23,7 +23,7 @@ class ProductController extends Controller
 
     public function product($slug)
     {
-    	$product = Product::where('slug',$slug)->first();
+    	$product = Product::where('slug',$slug)->with('comments.user')->first();
         if (! empty($product)) {
             return view('products.product', compact('product'));
         }

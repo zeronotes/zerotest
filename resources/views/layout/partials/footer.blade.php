@@ -1,7 +1,7 @@
 	<div id="footer" class="color-div">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-3" name="instagram-feed">
 					<div class="widget">
 						<h4 class="widget-title">Instagram Feed</h4>
 						<div id="beta-instagram-feed"><div></div></div>
@@ -50,7 +50,7 @@
 	</div> <!-- #footer -->
 	<div class="copyright">
 		<div class="container">
-			<p class="pull-left">Privacy policy. (&copy;) 2014</p>
+			<p class="pull-left" id="click-to-top">Privacy policy. (&copy;) 2014</p>
 			<p class="pull-right pay-options">
 				<a href="#"><img src="/assets/dest/images/pay/master.jpg" alt="" /></a>
 				<a href="#"><img src="/assets/dest/images/pay/pay.jpg" alt="" /></a>
@@ -85,8 +85,13 @@
 			}else{
 				$(".header-bottom").removeClass('fixNav')
 			}}
-		)
-	})
+		);
+
+		$('#click-to-top').click(function() {
+			// alert('fuck');
+			$('#test-top').focus();
+		});
+	});
 	</script>
 </body>
 </html>

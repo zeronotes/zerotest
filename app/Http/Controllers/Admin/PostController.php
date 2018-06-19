@@ -20,10 +20,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::where('post_type','post')->where('status','publish')->orWhere('status','draft')->orderBy('created_at','DESC')->paginate(10);
-        // foreach ($data as $value) {
-        //     dd($value->categories);
-        // }
+        $data = Post::where('post_type','post')->where('status','publish')->orWhere('status','draft')->orderBy('created_at','DESC')->with('user','categories.category','tags.tag')->paginate(10);
+        // $data = Post::where('post_type','post')->where('status','publish')->orWhere('status','draft')->orderBy('created_at','DESC')->with('user')->with('categories.category')->with('tags.tag')->paginate(10);
+        
         return view('admin.posts.index')->with('data', $data);
     }
 

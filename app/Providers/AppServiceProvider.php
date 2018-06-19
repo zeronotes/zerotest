@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-use App\ProductCategory;
+// use App\ProductCategory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,6 +21,15 @@ class AppServiceProvider extends ServiceProvider
         // $product_categories = ProductCategory::all();
         //dd($product_categories);
         // View::share('product_categories', $product_categories);
+
+        // hien thi cac query
+        // DB::listen(function ($query) {
+        //     var_dump([
+        //         $query->sql,
+        //         $query->bindings,
+        //         $query->time
+        //     ]);
+        // });
     }
 
     /**
