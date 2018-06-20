@@ -40,8 +40,8 @@
 			<tr data-row="0" class="parent-show m-datatable__row" style="left: 0px;">
 			<td data-field="Order ID" class="m-datatable__cell align-top">
 			<span style="width: 250px; font-weight: 500;"><a class="xanhwp first-uppercase" href="{{ route('admin.posts.edit',$row->id) }}">{{ $row->title }}</a></span>
-			<span style="width: 250px; font-weight: 500;" class="child-hidden">
-				<form method="post" action="{{ route('admin.posts.delete',$row->id) }}" class="formdelete">
+			<span style="width: 250px; height: 30px; font-weight: 500;" class="">
+				<form method="post" action="{{ route('admin.posts.delete',$row->id) }}" class="formdelete child-hidden">
 					<div class="row">
 						<div class="col-lg-1 col-xs-1 text-left" style="padding-right: 1px; padding-left: 5px"></div>
 						<div class="col-lg-2 col-xs-3 text-left" style="padding-right: 1px; padding-left: 5px">
