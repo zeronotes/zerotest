@@ -352,6 +352,7 @@ class uploader {
                     if (function_exists('chmod'))
                         @chmod($target, $this->config['filePerms']);
                     $this->makeThumb($target);
+                    $this->makeMediumThumb($target);
                     $url = $this->typeURL;
                     if (isset($udir)) $url .= "/$udir";
                     $url .= "/" . basename($target);
@@ -692,6 +693,52 @@ class uploader {
 
         // Resize image
         } elseif (!$img->resizeFit($this->config['thumbWidth'], $this->config['thumbHeight']))
+            return false;
+
+        // Save thumbnail
+        $options = array('file' => $thumb);
+        if ($type == "gif")
+            $type = "jpeg";
+        if ($type == "jpeg")
+            $options['quality'] = $this->config['jpegQuality'];
+        return $img->output($type, $options);
+    }
+
+    protected function makeMediumThumb($file, $overwrite=true) {
+        // exit('test');
+        $img = image::factory($this->imageDriver, $file);
+
+        // Drop files which are not images
+        if ($img->initError)
+            return true;
+
+        $fimg = new fastImage($file);
+        $type = $fimg->getType();
+        $fimg->close();
+
+        if ($type === false)
+            return true;
+
+        $thumb = substr($file, strlen($this->config['uploadDir']));
+        $thumb = $this->config['uploadDir'] . "/" . $this->config['mediumThumbsDir'] . "/" . $thumb;
+        $thumb = path::normalize($thumb);
+        $thumbDir = dirname($thumb);
+        if (!is_dir($thumbDir) && !@mkdir($thumbDir, $this->config['dirPerms'], true))
+            return false;
+
+        if (!$overwrite && is_file($thumb))
+            return true;
+
+        // Images with smaller resolutions than thumbnails
+        if (($img->width <= $this->config['mediumThumbWidth']) &&
+            ($img->height <= $this->config['mediumThumbHeight'])
+        ) {
+            // Drop only browsable types
+            if (in_array($type, array("gif", "jpeg", "png")))
+                return true;
+
+        // Resize image
+        } elseif (!$img->resizeFit($this->config['mediumThumbWidth'], $this->config['mediumThumbHeight']))
             return false;
 
         // Save thumbnail

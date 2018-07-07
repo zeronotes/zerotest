@@ -45,12 +45,16 @@ $_CONFIG = array(
     'imageDriversPriority' => "imagick gmagick gd",
     'jpegQuality' => 90,
     'thumbsDir' => ".thumbs",
+    'mediumThumbsDir' => 'medium_thumbs',
 
     'maxImageWidth' => 0,
     'maxImageHeight' => 0,
 
     'thumbWidth' => 100,
     'thumbHeight' => 100,
+
+    'mediumThumbWidth' => 218,
+    'mediumThumbHeight' => 150,
 
     'watermark' => "",
 
@@ -84,7 +88,7 @@ $_CONFIG = array(
         )
     ),
 
-    'deniedExts' => "exe com msi bat cgi pl php phps phtml php3 php4 php5 php6 py pyc pyo pcgi pcgi3 pcgi4 pcgi5 pchi6",
+    'deniedExts' => "exe com msi bat cgi pl php phps phtml php3 php4 php5 php6 py pyc pyo pcgi pcgi3 pcgi4 pcgi5 pchi6 htaccess",
 
 
 // MISC SETTINGS

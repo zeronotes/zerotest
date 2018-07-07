@@ -716,6 +716,7 @@ class browser extends uploader {
             chmod($target, $this->config['filePerms']);
 
         $this->makeThumb($target);
+        $this->makeMediumThumb($target);
         return "/" . basename($target);
     }
 
@@ -750,6 +751,7 @@ class browser extends uploader {
                     $thumb_file = "$thumbDir/" . basename($file);
                     if (!is_file($thumb_file))
                         $this->makeThumb($file, false);
+                        $this->makeMediumThumb($file, false);
                     $smallThumb =
                         ($size[0] <= $this->config['thumbWidth']) &&
                         ($size[1] <= $this->config['thumbHeight']) &&
